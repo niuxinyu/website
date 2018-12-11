@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>我的简历</title>
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="css/default.css">
+</head>
+<body onload="load()">
+	<!-- 首页加载动画 -->
+	<div id="loading">
+		<div id="loading-center">
+			<div id="loading-center-absolute">
+				<div class="object" id="object_one"></div>
+				<div class="object" id="object_two"></div>
+				<div class="object" id="object_three"></div>
+				<div class="object" id="object_four"></div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="head">
+		<div class="head_pic">
+			<img src="images/阴险.jpg" alt="图片">
+			<div class="head_info"><span>hello</span> world</div>
+		</div>
+
+		<div class="music_player">
+			<div class="music_pic"></div>
+			<div class="music_control" id="music_control"></div>
+		</div>
+		
+	</div>
+
+	<div class="swiper-container swiper-container-vertical" id="pc">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide show1 pages">
+				<div class="box">
+					<div class="image-shadow js-tilt-container">
+						<span class="welcome">hello world</span>
+						<span class="welcome_info">hello world, hello world</span>
+					</div>
+				</div>
+			</div>
+	
+			<div class="swiper-slide show2 pages">
+				
+				<div class="main_con">
+					<div class="left_img"><img src="images/滑稽.png" alt="图片一"></div>
+					<div class="right_info">
+						人之初，性本善。性相近，习相远。
+				苟不教，性乃迁。教之道，贵以专。
+				昔孟母，择邻处。子不学，断机杼。
+				窦燕山，有义方。教五子，名俱扬。
+				养不教，父之过。教不严，师之惰。
+				子不学，非所宜。幼不学，老何为。
+				玉不琢，不成器。人不学，不知义。
+				为人子，方少时。亲师友，习礼仪。
+				香九龄，能温席。孝于亲，所当执。
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="swiper-slide show3 pages">
+				<div id="skill_content">
+					<div class="skill_title">
+						<h1>前端技能</h1>
+					</div>
+
+					<div id="skill_info">
+						<p>简单的文字介绍</p>
+					</div>
+					 <div id="skill_list">
+	                    <div class="skill_list_content" id="skill_list1">
+	                        <div class="skill_icon" id="skill_icon1"></div>
+	                        <div class="skill_name">HTML</div>
+	                        <div class="skill_flag"></div>
+	                        <div class="skill_int" id="skill_int1">
+	                        	<ul>
+	                        		<li>hello world</li>
+	                        		<li>hello world</li>
+	                        		<li>hello world</li>
+	                        		<li>hello world</li>
+	                        	</ul>
+	                        </div>
+	                    </div>
+	                    <div class="skill_list_content" id="skill_list2">
+	                        <div class="skill_icon" id="skill_icon2"></div>
+	                        <div class="skill_name">CSS</div>
+	                        <div class="skill_flag"></div>
+	                        <div class="skill_int" id="skill_int2">
+	                        	<ul>
+	                        		<li>hello world</li>
+	                        		<li>hello world</li>
+	                        		<li>hello world</li>
+	                        		<li>hello world</li>
+	                        	</ul>
+	                        </div>
+	                    </div>
+	                    <div class="skill_list_content" id="skill_list3">
+	                        <div class="skill_icon" id="skill_icon3"></div>
+	                        <div class="skill_name">JavaScript</div>
+	                        <div class="skill_flag"></div>
+	                        <div class="skill_int" id="skill_int3">
+	                        	<ul>
+	                        		<li>hello world</li>
+	                        		<li>hello world</li>
+	                        		<li>hello world</li>
+	                        		<li>hello world</li>
+	                        	</ul>
+	                        </div>
+	                    </div>
+	                    <div class="skill_list_content" id="skill_list4">
+	                        <div class="skill_icon" id="skill_icon4"></div>
+	                        <div class="skill_name">jQuery</div>
+	                        <div class="skill_flag"></div>
+	                        <div class="skill_int" id="skill_int4">
+	                        	<ul>
+	                        		<li>hello world</li>
+	                        		<li>hello world</li>
+	                        		<li>hello world</li>
+	                        		<li>hello world</li>
+	                        	</ul>
+	                        </div>
+	                    </div>
+	                </div>
+          	  </div>
+
+
+			</div>
+
+			<div class="swiper-slide show4 pages">
+				<div class="demo">
+					<div id="demo_content">
+						<div class="title">
+							<h1>作品展示</h1>
+						</div>
+						<div class="slide_con fl">
+							<ul class="slide_pics">
+								<li><a href="#"><img src="images/100.jpg" alt="幻灯片" /></a></li>
+				
+								<li><a href="#"><img src="images/100.jpg" alt="幻灯片" /></a></li>
+			
+								<li><a href="#"><img src="images/100.jpg" alt="幻灯片" /></a></li>
+			
+
+								<li><a href="#"><img src="images/100.jpg" alt="幻灯片" /></a></li>
+
+							</ul>
+							<div class="prev">
+								<!-- <img src="images/箭头_左.svg" alt="#"> -->
+							</div>
+							<div class="next">
+								<!-- <img src="images/箭头_右.svg" alt="#"> -->
+							</div>
+							<ul class="points"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="swiper-slide show5 pages">
+				<div class="contact_me">
+					<div class="right_border"></div>
+					<div class="clear"></div>
+					<div class="foot_border"></div>
+					<div class="info">
+						<div class="en_info">
+							<p class="p1">CONTACT</p>
+							<p class="p2">FOR ME</p>
+							<div class="clear"></div>
+						</div>
+						<div cn_info>
+							<p class="p3">
+								<em class="p3_1">灵感</em>
+								<em class="p3_2">代码</em>
+								<em class="p3_3">梦想</em>
+								<em class="p3_4">未来</em>
+							</p>
+							<p class="p4">
+								学习是一个充实愉悦的过程<br>
+								喜欢尝试，期待新鲜事物<br>
+								前端即兴趣，兴趣即未来<br>
+								行路有良友，便是捷径<br>
+								期待有机会与您共事！<br>
+							</p>
+							<div class="contact_">
+								<a href="#">
+									<img src="images/github.svg" alt="github">
+									<span class="github">GitHub</span>
+								</a>
+
+								<a href="#">
+									<img src="images/电话.svg" alt="电话">
+									<span class="phone">电话</span>
+								</a>
+
+								<a href="#">
+									<img src="images/qq.svg" alt="QQ">
+									<span class="qq">QQ</span>
+								</a>
+
+								<a href="#">
+									<img src="images/微信.svg" alt="微信">
+									<span class="wechat">微信</span>
+								</a>
+
+								<a href="#">
+									<img src="images/邮箱.svg" alt="邮箱">
+									<span class="email">邮箱</span>
+								</a>
+								<div class="clear"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="swiper-pagination" id="pc_but"></div>
+
+		<div class="left_info">
+			<span class="about_me">关于我</span>
+			<span class="about_me">关于我</span>
+			<span class="about_me">关于我</span>
+			<span class="about_me">关于我</span>
+			<span class="about_me">关于我</span>
+		</div>
+	</div>
+
+
+	<div class="mobile">
+		<div class="mobile_head">
+			<a href="#" class="mobile_a rubberBand"><img src="images/阴险.jpg" alt=""></a>
+			<h2 class="fadeInUp1">hello world</h2>
+			<p class="fadeInUp2">hello world</p>
+			<p class="fadeInUp3">hello world</p>
+			<p class="fadeInUp4">hello world</p>
+			<p class="fadeInUp5">hello world</p>
+			<div class="contact_me">
+				<a href="#">
+					<img src="images/github.svg" alt="#">
+					<span>Github</span>
+				</a>
+				<a href="#">
+					<img src="images/电话.svg" alt="#">
+					<span>电话</span>
+				</a>
+				<a href="#">
+					<img src="images/qq.svg" alt="#">
+					<span>QQ</span>
+				</a>
+				<a href="#">
+					<img src="images/微信.svg" alt="#">
+					<span>微信</span>
+				</a>
+				<a href="#">
+					<img src="images/邮箱.svg" alt="#">
+					<span>邮箱</span>
+				</a>
+				<div class="clear"></div>
+			</div>
+
+		</div>
+
+		<div class="mobile_about_me">
+			<div class="mobile_about_me_head">
+				<h2>关于我</h2>
+				<p></p>
+			</div>
+			<p>
+				人之初，性本善。性相近，习相远。
+				苟不教，性乃迁。教之道，贵以专。
+				昔孟母，择邻处。子不学，断机杼。
+				窦燕山，有义方。教五子，名俱扬。
+				养不教，父之过。教不严，师之惰。
+				子不学，非所宜。幼不学，老何为。
+				玉不琢，不成器。人不学，不知义。
+				为人子，方少时。亲师友，习礼仪。
+				香九龄，能温席。孝于亲，所当执。
+			</p>
+		</div>
+
+		<div class="mobile_skills">
+			<div class="mobile_skills_head">
+				<h2>技能掌握</h2>
+				<p></p>
+			</div>
+			<p>
+			人之初，性本善。性相近，习相远。
+			苟不教，性乃迁。教之道，贵以专。
+			昔孟母，择邻处。子不学，断机杼。
+			窦燕山，有义方。教五子，名俱扬。
+			养不教，父之过。教不严，师之惰。
+			子不学，非所宜。幼不学，老何为。
+			玉不琢，不成器。人不学，不知义。
+			为人子，方少时。亲师友，习礼仪。
+			香九龄，能温席。孝于亲，所当执。
+		</p>
+	
+			<div class="skills_photo">
+				<div class="skills_show">
+					<em>HTML</em>
+					<div class="html">
+						<div class="html_"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="skills_photo">
+				<div class="skills_show">
+					<em>CSS</em>
+					<div class="css">
+						<div class="css_"></div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="skills_photo">
+				<div class="skills_show">
+					<em>JavaScript</em>
+					<div class="js">
+						<div class="js_"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="skills_photo">
+				<div class="skills_show">
+					<em>jQuery</em>
+					<div class="jq">
+						<div class="jq_"></div>
+					</div>
+				</div>
+			</div>
+
+			
+
+
+		</div>
+
+		<div class="demo">
+			<div class="demo_head">
+				<h2>作品展示</h2>
+				<p></p>
+			</div>
+
+			<div class="container">
+				<div>
+					<div class="jR3DCarouselGallery"></div>
+				</div>
+			</div>
+
+		</div>
+		
+
+
+	</div>
+
+
+
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="js/swiper.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/jR3DCarousel.min.js"></script>
+
+</body>
+</html>
