@@ -579,24 +579,6 @@ a{
 	border-radius:10px;
 }
 
-@keyframes slide_scale{
-	0% {
-		/*transform: scale(0.5);*/
-		opacity: 0.1;
-		margin-left:-500px;
-	}
-	100% {
-		/*transform:scale(1);*/
-		opacity: 1;
-		margin-left:-400px;
-	}
-}
-
-#pc .slide_con_scale{
-	animation: slide_scale 1.5s;
-	visibility: visible;
-}
-
 #pc .slide_pics{
 	width: 800px;
 	height: 420px;
@@ -1052,6 +1034,13 @@ a{
 	width:34px;
 	height:34px;
 	margin-left:25px;
+	border-radius:50%;
+}
+
+#pc .contact_ img:hover{
+	width:34px;
+	height:34px;
+	border:1px solid #fff;
 }
 
 #pc .contact_ span{
@@ -1664,6 +1653,412 @@ a{
     }
 }
 
+/*手机端文字下划线淡入*/
+@keyframes open_p{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:60px;
+	}
+}
+
+@-webkit-keyframes open_p{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:60px;
+	}
+}
+
+@-o-keyframes open_p{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:60px;
+	}
+}
+
+@-moz-keyframes open_p{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:60px;
+	}
+}
+
+@-ms-keyframes open_p{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:60px;
+	}
+}
+
+/*skill*/
+@keyframes open_skill{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:80px;
+	}
+}
+
+@-webkit-keyframes open_skill{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:80px;
+	}
+}
+
+@-o-keyframes open_skill{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:80px;
+	}
+}
+
+@-moz-keyframes open_skill{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:80px;
+	}
+}
+
+@-ms-keyframes open_skill{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:80px;
+	}
+}
+
+/*demo*/
+@keyframes open_demo{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:80px;
+	}
+}
+
+@-webkit-keyframes open_demo{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:80px;
+	}
+}
+
+@-o-keyframes open_demo{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:80px;
+	}
+}
+
+@-moz-keyframes open_demo{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:80px;
+	}
+}
+
+@-ms-keyframes open_demo{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:80px;
+	}
+}
+
+/*技能栏特效*/
+@keyframes open_html{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:70%;
+	}
+
+}
+
+@-webkit-keyframes open_html{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:70%;
+	}
+
+}
+
+@-o-keyframes open_html{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:70%;
+	}
+
+}
+
+@-moz-keyframes open_html{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:70%;
+	}
+
+}
+
+@-ms-keyframes open_css{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:75%;
+	}
+
+}
+
+
+@-webkit-keyframes open_css{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:75%;
+	}
+
+}
+
+@-o-keyframes open_css{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:75%;
+	}
+
+}
+
+@-moz-keyframes open_css{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:75%;
+	}
+
+}
+
+@-ms-keyframes open_css{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:75%;
+	}
+
+}
+
+@keyframes open_js{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:60%;
+	}
+
+}
+
+@-webkit-keyframes open_js{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:60%;
+	}
+
+}
+
+
+@-o-keyframes open_js{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:60%;
+	}
+
+}
+
+
+@-moz-keyframes open_js{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:60%;
+	}
+
+}
+
+@-ms-keyframes open_js{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:60%;
+	}
+
+}
+
+
+@keyframes open_jq{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:50%;
+	}
+
+}
+
+
+@-webkit-keyframes open_jq{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:50%;
+	}
+
+}
+
+
+@-o-keyframes open_jq{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:50%;
+	}
+
+}
+
+@-moz-keyframes open_jq{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:50%;
+	}
+
+}
+
+@-ms-keyframes open_jq{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:50%;
+	}
+
+}
+
+
+
+
 /*不同段落的进入速度分开设置*/
 .fadeInUp1 {
     animation: fadeInUp 1s linear 0.3s;
@@ -1671,7 +2066,6 @@ a{
     -webkit-animation: fadeInUp 1s linear 0.3s;
     -moz-animation: fadeInUp 1s linear 0.3s;
     -ms-animation: fadeInUp 1s linear 0.3s;
-    font-family:SketchFineSerif;
 }
 
 .fadeInUp2 {
@@ -1726,8 +2120,6 @@ a{
 	}
 
 }
-
-
 
 @media screen and (max-width:720px){
 
@@ -1810,6 +2202,10 @@ a{
 	.jR3DCarouselGallery{
 		width:350px!important;
 	}
+
+	.head_pic{
+		margin-left:-20px;
+	}
 }
 
 
@@ -1825,6 +2221,16 @@ a{
     color:#fff;
 }
 
+.mobile_head h2{
+    font-family:SketchFineSerif;
+	opacity:0;
+}
+
+.mobile_head p{
+	opacity:0;
+}
+
+
 .rubberBand {
     animation: rubberBand 1.2s linear 1s;
 }
@@ -1835,8 +2241,6 @@ a{
     height: auto;
     margin-top: 24px;
 }
-
-
 
 .contact_me a{
 	width: 34px;
@@ -1860,6 +2264,7 @@ a{
 	margin:0 auto;
 }
 
+
 .mobile_about_me_head,.mobile_skills_head{
 	margin-top:13%;
 	text-align:center;
@@ -1867,15 +2272,34 @@ a{
 
 .mobile_about_me_head p{
     margin: 0 auto 5%;
-    width: 60px;
 	border-top:4px solid #337ab7;
+    opacity:0;
+    filter:alpha(opacity=0);
+	/*animation:open_p 1s;*/
+}
 
+.mobile_about_me_head_p p{
+	width:60px;
+	animation:open_p 1s;
+	border-top:4px solid #337ab7;
+	opacity:1;
+	filter:alpha(opacity=100);
 }
 
 .mobile_skills_head p{
 	margin: 0 auto 5%;
-    width: 60px;
+    /*width: 80px;*/
 	border-top:4px solid #337ab7;
+	opacity:0;
+	filter:alpha(opacity=0);
+}
+
+.mobile_skills_head_p p{
+	width:80px;
+	animation:open_skill 1s;
+	border-top:4px solid #337ab7;
+	opacity:1;
+	filter:alpha(opacity=100);
 }
 
 .skills_photo{
@@ -1902,40 +2326,65 @@ a{
 	position: absolute;
     left: 0px;
     top: 0;
-    width: 70%;
+    /*width:70%;*/
     background: #1abc9c;
     height: 100%;
     border-radius: 5px;
 }
+
+.html_open .html_{
+	width:70%;
+    animation:open_html 1s ease;
+
+}
+
 
 .css_{
 	position: absolute;
     left: 0px;
     top: 0;
     background: rgb(52, 73, 94);
-    width: 75%;
+    /*width: 75%;*/
     height: 100%;
     border-radius: 5px;
 }
+
+.css_open .css_{
+	width:75%;
+	animation:open_css 1s ease;
+}
+
+
 
 .js_{
 	position: absolute;
     left: 0px;
     top: 0;
-    width:60%;
+    /*width:60%;*/
    	background: rgb(231, 76, 60);
     height: 100%;
     border-radius: 5px;
 }
+
+.js_open .js_{
+	width:60%;
+	animation:open_js 1s ease;
+}
+
 
 .jq_{
 	position: absolute;
     left: 0px;
     top: 0;
     background: rgb(52, 152, 219);
-    width: 50%;
+    /*width: 50%;*/
     height: 100%;
     border-radius: 5px;
+}
+
+.jq_open .jq_{
+	width:50%;
+	animation:open_jq 1s ease;
 }
 
 .demo_head{
@@ -1945,15 +2394,21 @@ a{
 
 .demo p{
 	margin: 0 auto 5%;
-    width: 60px;
 	border-top:4px solid #337ab7;
+	opacity:0;
+	filter:alpha(opacity=0);
+}
+
+.demo_head_p p{
+	width:80px;
+	opacity:1;
+	filter:alpha(opacity=100);
+	border-top:4px solid #337ab7;
+	animation:open_demo 1s;
 }
 
 
-
 .container {
-	padding-right: 15px;
-	padding-left: 15px;
 	margin-right: auto;
 	margin-left: auto;
 	overflow: hidden;
@@ -1970,6 +2425,8 @@ a{
 .mobile_a img{
 	width:100%;
 }
+
+
 
 /*清除浮动,overflow*/
 .clear{
@@ -1990,7 +2447,7 @@ a{
 	top: -40px;
 	text-align: center;
 	line-height: 30px;
-	transition:all 1s ease;
+	transition:all 200ms ease;
 }
 
 .contact_me span:after{

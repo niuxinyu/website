@@ -27,7 +27,6 @@ window.onload = function(){
 	    $('#loading-center').fadeOut('600');
 
 
-
 	var swiper = new Swiper('#pc', {
 		direction: 'vertical',
 		slidesPerView: 1,
@@ -50,7 +49,7 @@ window.onload = function(){
 				}
 				if(this.activeIndex == 1){
 					$('.swiper-slide').removeClass('moving').eq(this.activeIndex).addClass('moving');
-				
+					
 				}
 				if(this.activeIndex == 2){
 					// $(".skill_title h1").after("<div class='title_en'><h2>· SKILLS ·</h2></div>");
@@ -63,7 +62,7 @@ window.onload = function(){
 				$(".title_en").remove();
 				}
 				if(this.activeIndex==3){
-				$('.slide_con').addClass('slide_con_scale');
+				$('.slide_con').addClass('fadeInLeft');
 				// $("#demo_content h1").after("<div class='title_en'><h2>· Demo ·</h2></div>");
 				// $(".title_en").animate({width:"130px"},800,function(){
 				// 	$(".title_en h2").slideDown(400);
@@ -84,11 +83,9 @@ window.onload = function(){
 				}
 
 			}
-
 		}
+	
 	});
-
-
 
 	// 设置音乐
 	var audio = new Audio();
@@ -385,14 +382,92 @@ window.onload = function(){
 	//carouselProps.slides = getSlides(7);
 	setUp()
 
+	// 判断滑动距离，自动播放音乐
+	$(window).bind("scroll", function(){ 
+		
+        var top = $(this).scrollTop(); // 当前窗口的滚动距离
+  		// console.log(top);
+  		if(top>0){
+  			$('.mobile_about_me_head').addClass('mobile_about_me_head_p');
+  		}
+  		if(top>150){
+  			$('.mobile_skills_head').addClass('mobile_skills_head_p')
+  		}
+  		if(top>380){
+  			$('.html').addClass('html_open')
+  		}
+  		if(top>500){
+  			$('.css').addClass('css_open')
+  		}
+  		if(top>600){
+  			$('.js').addClass('js_open')
+  		}
+  		if(top>720){
+  			$('.jq').addClass('jq_open')
+  		}
+  		if(top>870){
+  			$('.demo_head').addClass('demo_head_p')
+  		}
+  		});
 
 
+		 $('.mobile_head h2').delay(300).animate({opacity:1},400,function(){
+	    	$('.mobile_head p:nth-of-type(1)').animate({opacity:1},400,function(){
+	    		$('.mobile_head p:nth-of-type(2)').animate({opacity:1},300,function(){
+	    			$('.mobile_head p:nth-of-type(3)').animate({opacity:1},300,function(){
+	    				$('.mobile_head p:nth-of-type(4)').animate({opacity:1},300)
+	    			})
+	    		})
+	    	})
+	    })
 
 	}
 	else{
 	   //这里执行的是移动端的代码；
+
+
 	   	$('body').addClass('complete');
 	    $('#loading').remove();
+
+
+	    $(window).bind("scroll", function(){ 
+        var top = $(this).scrollTop(); // 当前窗口的滚动距离
+  		// console.log(top);
+  		
+  		if(top>0){
+  			$('.mobile_about_me_head').addClass('mobile_about_me_head_p')
+  		
+  		}
+  		if(top>90){
+  			$('.mobile_skills_head').addClass('mobile_skills_head_p')
+  		}
+  		if(top>370){
+  			$('.html').addClass('html_open')
+  		}
+  		if(top>436){
+  			$('.css').addClass('css_open')
+  		}
+  		if(top>522){
+  			$('.js').addClass('js_open')
+  		}
+  		if(top>610){
+  			$('.jq').addClass('jq_open')
+  		}
+  		if(top>720){
+  			$('.demo_head').addClass('demo_head_p')
+  		}
+  		});
+
+	    // 设置移动端字体淡入
+	    $('.mobile_head h2').delay(300).animate({opacity:1},400,function(){
+	    	$('.mobile_head p:nth-of-type(1)').animate({opacity:1},400,function(){
+	    		$('.mobile_head p:nth-of-type(2)').animate({opacity:1},300,function(){
+	    			$('.mobile_head p:nth-of-type(3)').animate({opacity:1},300,function(){
+	    				$('.mobile_head p:nth-of-type(4)').animate({opacity:1},300)
+	    			})
+	    		})
+	    	})
+	    })
 
 
 	    // 设置音乐
@@ -407,6 +482,23 @@ window.onload = function(){
 			audio.pause();
 		}
 	 });
+
+
+	 audio.onplay = function () {
+		$(".music_player").addClass("music_playing");
+		// $(".head").css("background-color", "transparent")
+		$(".head").css({backgroundColor:'transparent'});
+
+		$(".head").addClass("rainbow")
+	}
+	audio.onpause = function () {
+		$(".music_player").removeClass("music_playing");
+		// $(".head").css("background-color", "#000")
+		$(".head").css({backgroundColor:'#000'});  //注意这里需要将-去掉，后边的字母需要大写
+
+		$(".head").removeClass("rainbow")
+	};
+
 
 
 	 // 手机端
