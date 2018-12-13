@@ -1,32 +1,43 @@
 function IsPC() {
-        var userAgentInfo = navigator.userAgent;
-        var Agents = ["Android", "iPhone",
-                    "SymbianOS", "Windows Phone",
-                    "iPad", "iPod"];
-        var flag = true;
-        for (var v = 0; v < Agents.length; v++) {
-            if (userAgentInfo.indexOf(Agents[v]) > 0) {
-                flag = false;
-                break;
-            }
-        }
-        return flag;
-    };
+		var userAgentInfo = navigator.userAgent;
+		var Agents = ["Android", "iPhone",
+					"SymbianOS", "Windows Phone",
+					"iPad", "iPod"];
+		var flag = true;
+		for (var v = 0; v < Agents.length; v++) {
+			if (userAgentInfo.indexOf(Agents[v]) > 0) {
+				flag = false;
+				break;
+			}
+		}
+		return flag;
+	};
 
+// $(document).ready(function(){
+// 	$('.head').trigger('click')
+// })
 
 
 window.onload = function(){
+// 	document.onmousedown=function(e){
+// 		console.log(e)
+//     if(event.button==2){
+//         event.returnValue=false;	
+//         alert("右键被禁止啦！");
+//     }
+// }
+   // 禁止img拖拽
+	for(i in document.images)document.images[i].ondragstart=function(){return false;};
 	var isPC=IsPC();
 	if(isPC){
 	   // 这里执行的是PC端的代码；
 	   //  先这么加着
-
 		$('body').addClass('complete');
-	    // $('#loading').remove();
-	    $('#loading').fadeOut('600');
-	    $('#loading-center').fadeOut('600');
+		// $('#loading').remove();
+		$('#loading').fadeOut('1000');
+		$('#loading-center').fadeOut('1000');
 
-
+	var $flag = true;
 	var swiper = new Swiper('#pc', {
 		direction: 'vertical',
 		slidesPerView: 1,
@@ -49,24 +60,60 @@ window.onload = function(){
 				}
 				if(this.activeIndex == 1){
 					$('.swiper-slide').removeClass('moving').eq(this.activeIndex).addClass('moving');
-					
+					// if($flag){
+					// 	$flag = false;
+					// 	audio.play()
+					// }
 				}
-				if(this.activeIndex == 2){
-					// $(".skill_title h1").after("<div class='title_en'><h2>· SKILLS ·</h2></div>");
-					// $(".title_en").animate({width:"130px"},800,function(){
-					// $(".title_en h2").slideDown(400);
-					$(".skill_list_content").addClass("skill_scale");
-				// });
+				if(this.activeIndex==2){
+					 $(".circleChart#0").circleChart({
+							size: 300,
+							value: 70,
+							text: 0,
+							startAngle:-20,
+							color:"#4285F4",
+							onDraw: function(el, circle) {
+								circle.text(Math.round(circle.value) + "%");
+								// console.log(el);
+								}
+							});
+
+							$(".circleChart#1").circleChart({
+								size: 300,
+								value: 75,
+								text: 0,
+								color:"#EA4335",
+								startAngle:-20,
+								onDraw: function(el, circle) {
+									circle.text(Math.round(circle.value) + "%");
+								}
+							});
+
+							$(".circleChart#2").circleChart({
+								size: 300,
+								value: 60,
+								text: 0,
+								color:"#FBBC05",
+								startAngle:-20,
+								onDraw: function(el, circle) {
+									circle.text(Math.round(circle.value) + "%");
+								}
+							});
+
+							$(".circleChart#3").circleChart({
+								size: 300,
+								value: 70,
+								text: 0,
+								color:"#34A853",
+								startAngle:-20,
+								onDraw: function(el, circle) {
+									circle.text(Math.round(circle.value) + "%");
+								}
+							});
 				}
-				if(this.activeIndex==0||this.activeIndex==1||this.activeIndex==3||this.activeIndex==4||this.activeIndex==5||this.activeIndex==6){
-				$(".title_en").remove();
-				}
+				
 				if(this.activeIndex==3){
 				$('.slide_con').addClass('fadeInLeft');
-				// $("#demo_content h1").after("<div class='title_en'><h2>· Demo ·</h2></div>");
-				// $(".title_en").animate({width:"130px"},800,function(){
-				// 	$(".title_en h2").slideDown(400);
-				// });	
 				var i=-1;
 				$(".demo_scale").each(function() {
 					var $this=$(this);
@@ -76,8 +123,113 @@ window.onload = function(){
 					   $this.addClass("b_to_t");
 					   },200*i);
 					}
-					})
+					});	
+					if($flag){
+						$flag = false;
+						// 设置技能页面幻灯片
+						var $li = $('.slide_pics li');
+						// alert($li.length);
+						var $nowli = 0;
+						var $nextli = 0;
+						var $len = $li.length;
+						var timer = null;
+
+						$li.not(':first').css({left:800}); //除了第一张之外的所有幻灯片都放在右隐藏
+						// 先处理底部的点,动态创建点
+						$li.each(function(index){
+							var $sli = $('<li>'+(index+1)+'</li>');
+							if(index==0){
+								$sli.addClass('active');
+							}
+							$sli.appendTo('.points')
+
+						});
+
+						// 先做点的动画
+						$points = $('.points li');
+						// alert($points.length)
+						$points.click(function(){
+							$nextli = $(this).index();
+
+							if($nextli==$nowli){  //在执行move函数之前先判断按钮是否相同
+								return;
+							}
+							move();
+							$(this).addClass('active').siblings().removeClass('active');
+						});
+
+						$prev = $('.prev');
+						$next = $('.next');
+						$prev.click(function(){
+							$nextli--;  //因为nowli是时刻被nextli赋值的，所以如果使用的是nowli的话就会导致一个bug
+							//也就是nowli刚在这里-1.,在执行到下边的时候又被nextli重新赋值，所以页面会卡在一页不能动
+							move();
+							$points.eq($nextli).addClass('active').siblings().removeClass('active');
+						});
+
+						$next.click(function(){
+							$nextli++;
+							move();
+							$points.eq($nextli).addClass('active').siblings().removeClass('active');
+
+						});
+
+						$('.slide_con').mouseenter(function() {
+							clearInterval(timer);
+						});
+
+						$('.slide_con').mouseleave(function() {
+							timer = setInterval(autoplay,4000);
+						});
+
+						timer = setInterval(autoplay,4000);
+						function autoplay(){
+							$nextli++;
+							move();
+							$points.eq($nextli).addClass('active').siblings().removeClass('active');
+						};
+
+						function move(){
+
+							if($nextli<0){
+								$nextli = $len-1;
+								$nowli = 0;
+								$li.eq($nextli).css({left:-800});
+								$li.eq($nowli).stop().animate({left:800});
+								$li.eq($nextli).stop().animate({left:0});
+								$nowli = $nextli;
+								return;
+
+							}
+
+							if($nextli>$len-1){
+								$nextli = 0;
+								$nowli = $len-1;
+								$li.eq($nextli).css({left:800});
+								$li.eq($nowli).stop().animate({left:-800});
+								$li.eq($nextli).stop().animate({left:0});
+								$nowli  = $nextli;
+								return;
+							}
+
+							if($nextli>$nowli){
+								$li.eq($nextli).css({left:800});
+								$li.eq($nowli).stop().animate({left:-800});
+								$li.eq($nextli).stop().animate({left:0});  //这句话和下边的那句话都可以提出来
+							}
+
+							else{
+								$li.eq($nextli).css({left:-800});
+								$li.eq($nowli).stop().animate({left:800});
+								$li.eq($nextli).stop().animate({left:0});
+							}
+
+							// 将nextli赋值给nowli，因为执行完这个if之后，nextli需要改变
+							$nowli = $nextli;
+						};
+					}
 				}
+
 				if(this.activeIndex==4){
 					$('.contact_me').addClass('fadeInLeft');
 				}
@@ -85,6 +237,18 @@ window.onload = function(){
 			}
 		}
 	
+	});
+
+
+	$('#pc .slide_pics li').hover(function() {
+		$(this).find('img').css({"transform":"scale(1.3,1.3)"});
+		$(this).find('span').css({"opacity":"1","transform":"scale(1.2,1.2)"});
+		
+	}, function() {
+		$(this).find('img').css({"transform":"scale(1,1)"});
+
+		$(this).find('span').css({"opacity":"0.3","transform":"scale(1,1)"});
+		
 	});
 
 	// 设置音乐
@@ -103,15 +267,12 @@ window.onload = function(){
 		$(".music_player").addClass("music_playing");
 		// $(".head").css("background-color", "transparent")
 		$(".head").css({backgroundColor:'transparent'});
-
-		$(".head").addClass("rainbow")
 	}
 	audio.onpause = function () {
 		$(".music_player").removeClass("music_playing");
 		// $(".head").css("background-color", "#000")
 		$(".head").css({backgroundColor:'#000'});  //注意这里需要将-去掉，后边的字母需要大写
 
-		$(".head").removeClass("rainbow")
 	};
 
 
@@ -158,6 +319,9 @@ window.onload = function(){
 		$('.image-shadow').css({boxShadow:'0 0 0 0 '});
 	});
 
+	// 首页焦点图文字设置不可以选中
+	$('.wel_info span:last').siblings().css({userSelect:"none"})
+
 	// 技能文字
 	$(".skill_icon").click(function(){
 		$(".skill_int").each(function(){
@@ -202,123 +366,7 @@ window.onload = function(){
 		$(this).next('span').css({opacity:0})
 	});
 
-
-	// 设置技能页面幻灯片
-	var $li = $('.slide_pics li');
-	// alert($li.length);
-
-	var $nowli = 0;
-	var $nextli = 0;
-	var $len = $li.length;
-
-	var timer = null;
-
-
-
-	$li.not(':first').css({left:800}); //除了第一张之外的所有幻灯片都放在右隐藏
-	// 先处理底部的点,动态创建点
-	$li.each(function(index){
-		var $sli = $('<li>'+(index+1)+'</li>');
-		if(index==0){
-			$sli.addClass('active');
-		}
-		$sli.appendTo('.points')
-
-	});
-
-	// 先做点的动画
-	$points = $('.points li');
-	// alert($points.length)
-	$points.click(function(){
-		$nextli = $(this).index();
-
-		if($nextli==$nowli){  //在执行move函数之前先判断按钮是否相同
-			return;
-		}
-
-		move();
-
-		$(this).addClass('active').siblings().removeClass('active');
-	});
-
-
-	$prev = $('.prev');
-	$next = $('.next');
-	$prev.click(function(){
-		$nextli--;  //因为nowli是时刻被nextli赋值的，所以如果使用的是nowli的话就会导致一个bug
-		//也就是nowli刚在这里-1.,在执行到下边的时候又被nextli重新赋值，所以页面会卡在一页不能动
-		move();
-		$points.eq($nextli).addClass('active').siblings().removeClass('active');
-	});
-
-	$next.click(function(){
-		$nextli++;
-		move();
-		$points.eq($nextli).addClass('active').siblings().removeClass('active');
-
-	});
-
-
-
-	$('.slide_con').mouseenter(function() {
-		clearInterval(timer);
-	});
-
-	$('.slide_con').mouseleave(function() {
-		timer = setInterval(autoplay,4000);
-	});
-
-
-	timer = setInterval(autoplay,4000);
-	function autoplay(){
-		$nextli++;
-		move();
-		$points.eq($nextli).addClass('active').siblings().removeClass('active');
-	};
-
-
-
-	function move(){
-
-		if($nextli<0){
-			$nextli = $len-1;
-			$nowli = 0;
-			$li.eq($nextli).css({left:-800});
-			$li.eq($nowli).stop().animate({left:800});
-			$li.eq($nextli).stop().animate({left:0});
-			$nowli = $nextli;
-			return;
-
-		}
-
-		if($nextli>$len-1){
-			$nextli = 0;
-			$nowli = $len-1;
-			$li.eq($nextli).css({left:800});
-			$li.eq($nowli).stop().animate({left:-800});
-			$li.eq($nextli).stop().animate({left:0});
-			$nowli  = $nextli;
-			return;
-
-
-		}
-
-		if($nextli>$nowli){
-			$li.eq($nextli).css({left:800});
-			$li.eq($nowli).stop().animate({left:-800});
-			$li.eq($nextli).stop().animate({left:0});  //这句话和下边的那句话都可以提出来
-		}
-
-		else{
-			$li.eq($nextli).css({left:-800});
-			$li.eq($nowli).stop().animate({left:800});
-			$li.eq($nextli).stop().animate({left:0});
-		}
-
-		// 将nextli赋值给nowli，因为执行完这个if之后，nextli需要改变
-		$nowli = $nextli;
-
-	};
+	
 
 
 
@@ -326,7 +374,7 @@ window.onload = function(){
 	var slides = [{src: 'images/100.jpg'}, {src: 'images/200.jpg'}, {src: 'images/300.jpg'}, {src: 'images/400.jpg'},{src: 'images/500.jpg'}, {src: 'images/300.jpg'}, {src: 'images/400.jpg'}, {src: 'images/500.jpg'}]
 	var jR3DCarousel;
 	var carouselProps =  {
-			 		  width: 400, 				
+					  width: 400, 				
 					  height: 222, 				
 					  slideLayout : 'fill',  
 					  animation: 'slide3D', 		
@@ -341,7 +389,7 @@ window.onload = function(){
 						  
 				}
 	function setUp(){
- 		jR3DCarousel = $('.jR3DCarouselGallery').jR3DCarousel(carouselProps);
+		jR3DCarousel = $('.jR3DCarouselGallery').jR3DCarousel(carouselProps);
 
 		$('.settings').html('<pre>$(".jR3DCarouselGallery").jR3DCarousel('+JSON.stringify(carouselProps, null, 4)+')</pre>');		
 		
@@ -356,7 +404,7 @@ window.onload = function(){
 			carouselProps[this.name] = Number(this.value) || null; 
 		
 		for(var i = 0; i < 999; i++)
-	     clearInterval(i);
+		 clearInterval(i);
 		$('.jR3DCarouselGallery').empty();
 		setUp();
 		jR3DCarousel.showNextSlide();
@@ -365,7 +413,7 @@ window.onload = function(){
 	$('[name=slides]').change(function(){
 		carouselProps[this.name] = getSlides(this.value); 
 		for (var i = 0; i < 999; i++)
-	     clearInterval(i);
+		 clearInterval(i);
 		$('.jR3DCarouselGallery').empty();
 		setUp();
 		jR3DCarousel.showNextSlide();		
@@ -382,95 +430,96 @@ window.onload = function(){
 	//carouselProps.slides = getSlides(7);
 	setUp()
 
-	// 判断滑动距离，自动播放音乐
+	// 判断滑动距离
 	$(window).bind("scroll", function(){ 
 		
-        var top = $(this).scrollTop(); // 当前窗口的滚动距离
-  		// console.log(top);
-  		if(top>0){
-  			$('.mobile_about_me_head').addClass('mobile_about_me_head_p');
-  		}
-  		if(top>150){
-  			$('.mobile_skills_head').addClass('mobile_skills_head_p')
-  		}
-  		if(top>380){
-  			$('.html').addClass('html_open')
-  		}
-  		if(top>500){
-  			$('.css').addClass('css_open')
-  		}
-  		if(top>600){
-  			$('.js').addClass('js_open')
-  		}
-  		if(top>720){
-  			$('.jq').addClass('jq_open')
-  		}
-  		if(top>870){
-  			$('.demo_head').addClass('demo_head_p')
-  		}
-  		});
+		var top = $(this).scrollTop(); // 当前窗口的滚动距离
+		// console.log(top);
+		if(top>0){
+			$('.mobile_about_me_head').addClass('mobile_about_me_head_p');
+		}
+		if(top>150){
+			$('.mobile_skills_head').addClass('mobile_skills_head_p')
+		}
+		if(top>380){
+			$('.html').addClass('html_open')
+		}
+		if(top>500){
+			$('.css').addClass('css_open')
+		}
+		if(top>600){
+			$('.js').addClass('js_open')
+		}
+		if(top>720){
+			$('.jq').addClass('jq_open')
+		}
+		if(top>870){
+			$('.demo_head').addClass('demo_head_p')
+		}
+		});
 
 
 		 $('.mobile_head h2').delay(300).animate({opacity:1},400,function(){
-	    	$('.mobile_head p:nth-of-type(1)').animate({opacity:1},400,function(){
-	    		$('.mobile_head p:nth-of-type(2)').animate({opacity:1},300,function(){
-	    			$('.mobile_head p:nth-of-type(3)').animate({opacity:1},300,function(){
-	    				$('.mobile_head p:nth-of-type(4)').animate({opacity:1},300)
-	    			})
-	    		})
-	    	})
-	    })
+			$('.mobile_head p:nth-of-type(1)').animate({opacity:1},400,function(){
+				$('.mobile_head p:nth-of-type(2)').animate({opacity:1},300,function(){
+					$('.mobile_head p:nth-of-type(3)').animate({opacity:1},300,function(){
+						$('.mobile_head p:nth-of-type(4)').animate({opacity:1},300)
+					})
+				})
+			})
+		})
 
 	}
 	else{
 	   //这里执行的是移动端的代码；
 
 
-	   	$('body').addClass('complete');
-	    $('#loading').remove();
+		$('body').addClass('complete');
+		$('#loading').remove();
+		$('#loading').fadeOut('600');
+		$('#loading-center').fadeOut('600');
+
+		$(window).bind("scroll", function(){ 
+		var top = $(this).scrollTop(); // 当前窗口的滚动距离
+		// console.log(top);
+		
+		if(top>0){
+			$('.mobile_about_me_head').addClass('mobile_about_me_head_p');
+			audio.play()
+		}
+		if(top>90){
+			$('.mobile_skills_head').addClass('mobile_skills_head_p')
+		}
+		if(top>370){
+			$('.html').addClass('html_open')
+		}
+		if(top>436){
+			$('.css').addClass('css_open')
+		}
+		if(top>522){
+			$('.js').addClass('js_open')
+		}
+		if(top>610){
+			$('.jq').addClass('jq_open')
+		}
+		if(top>720){
+			$('.demo_head').addClass('demo_head_p')
+		}
+		});
+
+		// 设置移动端字体淡入
+		$('.mobile_head h2').delay(300).animate({opacity:1},400,function(){
+			$('.mobile_head p:nth-of-type(1)').animate({opacity:1},400,function(){
+				$('.mobile_head p:nth-of-type(2)').animate({opacity:1},300,function(){
+					$('.mobile_head p:nth-of-type(3)').animate({opacity:1},300,function(){
+						$('.mobile_head p:nth-of-type(4)').animate({opacity:1},300)
+					})
+				})
+			})
+		})
 
 
-	    $(window).bind("scroll", function(){ 
-        var top = $(this).scrollTop(); // 当前窗口的滚动距离
-  		// console.log(top);
-  		
-  		if(top>0){
-  			$('.mobile_about_me_head').addClass('mobile_about_me_head_p')
-  		
-  		}
-  		if(top>90){
-  			$('.mobile_skills_head').addClass('mobile_skills_head_p')
-  		}
-  		if(top>370){
-  			$('.html').addClass('html_open')
-  		}
-  		if(top>436){
-  			$('.css').addClass('css_open')
-  		}
-  		if(top>522){
-  			$('.js').addClass('js_open')
-  		}
-  		if(top>610){
-  			$('.jq').addClass('jq_open')
-  		}
-  		if(top>720){
-  			$('.demo_head').addClass('demo_head_p')
-  		}
-  		});
-
-	    // 设置移动端字体淡入
-	    $('.mobile_head h2').delay(300).animate({opacity:1},400,function(){
-	    	$('.mobile_head p:nth-of-type(1)').animate({opacity:1},400,function(){
-	    		$('.mobile_head p:nth-of-type(2)').animate({opacity:1},300,function(){
-	    			$('.mobile_head p:nth-of-type(3)').animate({opacity:1},300,function(){
-	    				$('.mobile_head p:nth-of-type(4)').animate({opacity:1},300)
-	    			})
-	    		})
-	    	})
-	    })
-
-
-	    // 设置音乐
+		// 设置音乐
 	var audio = new Audio();
 	audio.src = "http://www.ytmp3.cn/down/36522.mp3";
 	audio.loop = "loop";
@@ -488,15 +537,15 @@ window.onload = function(){
 		$(".music_player").addClass("music_playing");
 		// $(".head").css("background-color", "transparent")
 		$(".head").css({backgroundColor:'transparent'});
-
 		$(".head").addClass("rainbow")
+		$('.music_control').css({opacity:0.5})
 	}
 	audio.onpause = function () {
 		$(".music_player").removeClass("music_playing");
 		// $(".head").css("background-color", "#000")
 		$(".head").css({backgroundColor:'#000'});  //注意这里需要将-去掉，后边的字母需要大写
-
 		$(".head").removeClass("rainbow")
+		$('.music_control').css({opacity:0.5})
 	};
 
 
@@ -514,7 +563,7 @@ window.onload = function(){
 	var slides = [{src: 'images/100.jpg'}, {src: 'images/200.jpg'}, {src: 'images/300.jpg'}, {src: 'images/400.jpg'},{src: 'images/500.jpg'}, {src: 'images/300.jpg'}, {src: 'images/400.jpg'}, {src: 'images/500.jpg'}]
 	var jR3DCarousel;
 	var carouselProps =  {
-			 		  width: 400, 				
+					  width: 400, 				
 					  height: 222, 				
 					  slideLayout : 'fill',  
 					  animation: 'slide3D', 		
@@ -529,7 +578,7 @@ window.onload = function(){
 						  
 				}
 	function setUp(){
- 		jR3DCarousel = $('.jR3DCarouselGallery').jR3DCarousel(carouselProps);
+		jR3DCarousel = $('.jR3DCarouselGallery').jR3DCarousel(carouselProps);
 
 		$('.settings').html('<pre>$(".jR3DCarouselGallery").jR3DCarousel('+JSON.stringify(carouselProps, null, 4)+')</pre>');		
 		
@@ -544,7 +593,7 @@ window.onload = function(){
 			carouselProps[this.name] = Number(this.value) || null; 
 		
 		for(var i = 0; i < 999; i++)
-	     clearInterval(i);
+		 clearInterval(i);
 		$('.jR3DCarouselGallery').empty();
 		setUp();
 		jR3DCarousel.showNextSlide();
@@ -553,7 +602,7 @@ window.onload = function(){
 	$('[name=slides]').change(function(){
 		carouselProps[this.name] = getSlides(this.value); 
 		for (var i = 0; i < 999; i++)
-	     clearInterval(i);
+		 clearInterval(i);
 		$('.jR3DCarouselGallery').empty();
 		setUp();
 		jR3DCarousel.showNextSlide();		
@@ -573,18 +622,6 @@ window.onload = function(){
 
 	}
 };
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
