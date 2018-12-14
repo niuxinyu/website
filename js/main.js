@@ -33,11 +33,12 @@ window.onload = function(){
 	for(i in document.images)document.images[i].ondragstart=function(){return false;};
 	var isPC=IsPC();
 	if(isPC){
+
+
 	   // 这里执行的是PC端的代码；
 	   //  先这么加着
 		$('body').addClass('complete');
-		// $('#loading').remove();
-		$('#loading').fadeOut('1000');
+		$('#loading').animate({height:0},'noraml','linear')
 		$('#loading-center').fadeOut('1000');
 
 	var $flag = true;
@@ -382,7 +383,7 @@ window.onload = function(){
 
 
 	// 设置手机端
-	var slides = [{src: 'images/100.jpg'}, {src: 'images/200.jpg'}, {src: 'images/300.jpg'}, {src: 'images/400.jpg'},{src: 'images/500.jpg'}, {src: 'images/300.jpg'}, {src: 'images/400.jpg'}, {src: 'images/500.jpg'}]
+	var slides = [{src: 'images/100.jpg'}, {src: 'images/200.jpg'}, {src: 'images/300.jpg'}, {src: 'images/400.jpg'},{src: 'images/500.jpg'}, {src: 'images/a1.png'}, {src: 'images/a2.png'}, {src: 'images/600.jpg'}]
 	var jR3DCarousel;
 	var carouselProps =  {
 					  width: 400, 				
@@ -495,15 +496,15 @@ window.onload = function(){
 		document.body.addEventListener("touchstart", function () {})
 	   	var $$$flag = true;
 		$('body').addClass('complete');
-		$('#loading').remove();
-		$('#loading').fadeOut('600');
-		$('#loading-center').fadeOut('600');
+		$('#loading').animate({height:0},'noraml','linear',function(){
+			$('#up_icon').addClass('up_icon')
+		});
+		$('#loading-center').fadeOut('1000');
 
-		
 
 		$(window).bind("scroll", function(){ 
 		var top = $(this).scrollTop(); // 当前窗口的滚动距离
-		console.log(top);
+		// console.log(top);
 		
 		if(top>0){
 			$('.mobile_about_me_head').addClass('mobile_about_me_head_p');
@@ -529,7 +530,7 @@ window.onload = function(){
 			$('.jq').addClass('jq_open')
 		}
 		if(top>1060){
-			$('.demo_head').addClass('demo_head_p')
+			$('.demo_head').addClass('demo_head_p');
 		}
 		});
 
@@ -586,7 +587,7 @@ window.onload = function(){
 
 
 
-	var slides = [{src: 'images/100.jpg'}, {src: 'images/200.jpg'}, {src: 'images/300.jpg'}, {src: 'images/400.jpg'},{src: 'images/500.jpg'}, {src: 'images/300.jpg'}, {src: 'images/400.jpg'}, {src: 'images/500.jpg'}]
+	var slides = [{src: 'images/100.jpg'}, {src: 'images/200.jpg'}, {src: 'images/300.jpg'}, {src: 'images/400.jpg'},{src: 'images/500.jpg'}, {src: 'images/a1.png'}, {src: 'images/a2.png'}, {src: 'images/600.jpg'}]
 	var jR3DCarousel;
 	var carouselProps =  {
 					  width: 400, 				
@@ -643,7 +644,12 @@ window.onload = function(){
 	// }
 	
 	//carouselProps.slides = getSlides(7);
-	setUp()
+	setUp();
+
+
+	$('#up_icon').click(function(){
+		$('html,body').animate({'scrollTop':0},800)
+	})
 
 
 	}
