@@ -555,7 +555,7 @@ window.onload = function(){
 	var audio = new Audio();
 	audio.src = "http://www.ytmp3.cn/down/53996.mp3";
 	audio.loop = "loop";
-	audio.preload = "meta";
+	audio.preload = "none";
 	 $(".music_player").click(function() {
 		 if (audio.paused) {
 			audio.play();
@@ -586,7 +586,7 @@ window.onload = function(){
 	$('.contact_me').find('img').hover(function() {
 		$(this).next('span').css({opacity:1,display:'block'})
 	}, function() {
-		$(this).next('span').css({opacity:0,display:'block'})
+		$(this).next('span').css({opacity:0,display:'none'})
 	});
 	
 
