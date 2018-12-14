@@ -550,7 +550,7 @@ window.onload = function(){
 	var audio = new Audio();
 	audio.src = "http://www.ytmp3.cn/down/53996.mp3";
 	audio.loop = "loop";
-	audio.preload = "auto";
+	audio.preload = "meta";
 	 $(".music_player").click(function() {
 		 if (audio.paused) {
 			audio.play();
