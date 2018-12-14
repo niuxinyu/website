@@ -493,6 +493,9 @@ window.onload = function(){
 	}
 	else{
 	   //这里执行的是移动端的代码；
+	   	element = document.getElementById('dontshowcopy');
+		element.addEventListener("touchstart", preventCopy, false); element.addEventListener("gesturestart", preventCopy, false);
+
 		document.body.addEventListener("touchstart", function () {})
 	   	var $$$flag = true;
 		$('body').addClass('complete');
