@@ -481,28 +481,28 @@ window.onload = function(){
 
 		$(window).bind("scroll", function(){ 
 		var top = $(this).scrollTop(); // 当前窗口的滚动距离
-		// console.log(top);
+		console.log(top);
 		
 		if(top>0){
 			$('.mobile_about_me_head').addClass('mobile_about_me_head_p');
-			audio.play()
+			// audio.play()
 		}
-		if(top>90){
+		if(top>140){
 			$('.mobile_skills_head').addClass('mobile_skills_head_p')
 		}
-		if(top>370){
+		if(top>390){
 			$('.html').addClass('html_open')
 		}
-		if(top>436){
+		if(top>460){
 			$('.css').addClass('css_open')
 		}
-		if(top>522){
+		if(top>550){
 			$('.js').addClass('js_open')
 		}
-		if(top>610){
+		if(top>620){
 			$('.jq').addClass('jq_open')
 		}
-		if(top>720){
+		if(top>740){
 			$('.demo_head').addClass('demo_head_p')
 		}
 		});
