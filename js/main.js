@@ -493,8 +493,10 @@ window.onload = function(){
 	}
 	else{
 	   //这里执行的是移动端的代码；
-	   	element = document.getElementById('dontshowcopy');
-		element.addEventListener("touchstart", preventCopy, false); element.addEventListener("gesturestart", preventCopy, false);
+	  	var $body = document.getElementById('body');
+	  	$body.addEventListener('contextmenu', function(e){
+        e.preventDefault();
+     	});
 
 		document.body.addEventListener("touchstart", function () {})
 	   	var $$$flag = true;
