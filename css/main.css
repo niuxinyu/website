@@ -2570,6 +2570,7 @@ a{
 }
 
 .contact_me span{
+	display:none;
 	opacity:0;
 	width: 58px;
 	height: 30px;

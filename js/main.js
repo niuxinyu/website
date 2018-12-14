@@ -579,9 +579,9 @@ window.onload = function(){
 
 	 // 手机端
 	$('.contact_me').find('img').hover(function() {
-		$(this).next('span').css({opacity:1})
+		$(this).next('span').css({opacity:1,display:'block'})
 	}, function() {
-		$(this).next('span').css({opacity:0})
+		$(this).next('span').css({opacity:0,display:'block'})
 	});
 	
 
