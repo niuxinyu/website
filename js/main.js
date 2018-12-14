@@ -26,6 +26,9 @@ window.onload = function(){
 //         alert("右键被禁止啦！");
 //     }
 // }
+
+	
+
    // 禁止img拖拽
 	for(i in document.images)document.images[i].ondragstart=function(){return false;};
 	var isPC=IsPC();
@@ -38,6 +41,7 @@ window.onload = function(){
 		$('#loading-center').fadeOut('1000');
 
 	var $flag = true;
+	var $$flag = true;
 	var swiper = new Swiper('#pc', {
 		direction: 'vertical',
 		slidesPerView: 1,
@@ -60,15 +64,15 @@ window.onload = function(){
 				}
 				if(this.activeIndex == 1){
 					$('.swiper-slide').removeClass('moving').eq(this.activeIndex).addClass('moving');
-					// if($flag){
-					// 	$flag = false;
-					// 	audio.play()
-					// }
+					if($$flag){
+						$$flag = false;
+						audio.play()
+					}
 				}
 				if(this.activeIndex==2){
 					 $(".circleChart#0").circleChart({
 							size: 300,
-							value: 70,
+							value: 80,
 							text: 0,
 							startAngle:-20,
 							color:"#4285F4",
@@ -124,9 +128,10 @@ window.onload = function(){
 					   },200*i);
 					}
 					});	
-					if($flag){
+						if($flag){
+							// 设置技能页面幻灯片
+						
 						$flag = false;
-						// 设置技能页面幻灯片
 						var $li = $('.slide_pics li');
 						// alert($li.length);
 						var $nowli = 0;
@@ -226,8 +231,9 @@ window.onload = function(){
 
 							// 将nextli赋值给nowli，因为执行完这个if之后，nextli需要改变
 							$nowli = $nextli;
-						};
-					}
+						};}
+
+
 				}
 
 				if(this.activeIndex==4){
@@ -238,6 +244,11 @@ window.onload = function(){
 		}
 	
 	});
+
+											
+						
+					
+
 
 
 	$('#pc .slide_pics li').hover(function() {
@@ -253,7 +264,7 @@ window.onload = function(){
 
 	// 设置音乐
 	var audio = new Audio();
-	audio.src = "http://www.ytmp3.cn/down/36522.mp3";
+	audio.src = "http://www.ytmp3.cn/down/53996.mp3";
 	audio.loop = "loop";
 	audio.preload = "auto";
 	 $(".music_player").click(function() {
@@ -430,15 +441,23 @@ window.onload = function(){
 	//carouselProps.slides = getSlides(7);
 	setUp()
 
+
+	var h = window.innerHeight;
+	console.log(h)
+	var a = $('.mobile_skills_head').offset().top
+	console.log(a)
 	// 判断滑动距离
-	$(window).bind("scroll", function(){ 
+	// var a = $('.mobile_about_me_head').offset().top - w
+
+	$(document).bind("scroll", function(){
 		
 		var top = $(this).scrollTop(); // 当前窗口的滚动距离
-		// console.log(top);
+	
+
 		if(top>0){
 			$('.mobile_about_me_head').addClass('mobile_about_me_head_p');
 		}
-		if(top>150){
+		if(top>10){
 			$('.mobile_skills_head').addClass('mobile_skills_head_p')
 		}
 		if(top>380){
@@ -469,15 +488,18 @@ window.onload = function(){
 			})
 		})
 
+		
 	}
 	else{
 	   //这里执行的是移动端的代码；
-
-
+		document.body.addEventListener("touchstart", function () {})
+	   	var $$$flag = true;
 		$('body').addClass('complete');
 		$('#loading').remove();
 		$('#loading').fadeOut('600');
 		$('#loading-center').fadeOut('600');
+
+		
 
 		$(window).bind("scroll", function(){ 
 		var top = $(this).scrollTop(); // 当前窗口的滚动距离
@@ -485,24 +507,28 @@ window.onload = function(){
 		
 		if(top>0){
 			$('.mobile_about_me_head').addClass('mobile_about_me_head_p');
-			// audio.play()
+			if($$$flag){
+				$$$flag = false;
+				audio.play()
+			}
+			
 		}
 		if(top>140){
 			$('.mobile_skills_head').addClass('mobile_skills_head_p')
 		}
-		if(top>390){
+		if(top>720){
 			$('.html').addClass('html_open')
 		}
-		if(top>460){
+		if(top>780){
 			$('.css').addClass('css_open')
 		}
-		if(top>550){
+		if(top>870){
 			$('.js').addClass('js_open')
 		}
-		if(top>620){
+		if(top>950){
 			$('.jq').addClass('jq_open')
 		}
-		if(top>740){
+		if(top>1060){
 			$('.demo_head').addClass('demo_head_p')
 		}
 		});
@@ -521,7 +547,7 @@ window.onload = function(){
 
 		// 设置音乐
 	var audio = new Audio();
-	audio.src = "http://www.ytmp3.cn/down/36522.mp3";
+	audio.src = "http://www.ytmp3.cn/down/53996.mp3";
 	audio.loop = "loop";
 	audio.preload = "auto";
 	 $(".music_player").click(function() {

@@ -108,7 +108,7 @@ a{
 .music_pic{
 	width:50px;
 	height:50px;
-	background-image:url(../images/滑稽.png);
+	background-image:url(../images/music_bg.png);
 	background-position:50%;
 	background-size: cover;	
 	border-radius:50%;
@@ -917,7 +917,59 @@ a{
 
 #pc .contact_ a{
 	position: relative;
+	outline:none;
 }
+
+#pc .contact_ .qq{
+	width: 138px;
+    height: 150px;
+    left: -30px;
+    top: -165px;
+    border: 2px solid #337ab7;
+    background:url(../images/qq.png) left top no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+}
+
+#pc .contact_ .qq:after{
+	content: "";
+	position: absolute;
+	right: 55px;
+	width: 0;
+	height: 0;
+	border-left: 12px solid transparent;
+	border-top: 12px solid #337ab7;
+	border-right: 12px solid transparent;
+	top:150px;
+	border-radius:2px;
+}
+
+#pc .contact_ .wechat{
+	width: 138px;
+    height: 150px;
+    left: -30px;
+    top: -165px;
+    border: 2px solid #337ab7;
+    background:url(../images/wx.png) left top no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+}
+
+#pc .contact_ .wechat:after{
+	content: "";
+	position: absolute;
+	right: 55px;
+	width: 0;
+	height: 0;
+	border-left: 12px solid transparent;
+	border-top: 12px solid #337ab7;
+	border-right: 12px solid transparent;
+	top:150px;
+	border-radius:2px;
+}
+
 
 #pc .contact_ img{
 	width:34px;
@@ -1019,7 +1071,7 @@ a{
 }
 
 .object:nth-child(2n+0) {
-		margin-right: 0px;
+		margin-right: 0;
 
 }
 
@@ -1947,7 +1999,6 @@ a{
 
 
 
-
 /*不同段落的进入速度分开设置*/
 .fadeInUp1 {
     animation: fadeInUp 1s linear 0.3s;
@@ -1962,7 +2013,7 @@ a{
     -o-animation: fadeInUp 1s linear 0.7s;
     -webkit-animation: fadeInUp 1s linear 0.7s;
     -moz-animation: fadeInUp 1s linear 0.7s;
-    -ms-animation: fadeInUp 1s linear 0.7s
+    -ms-animation: fadeInUp 1s linear 0.7s;
      font-size:20px;
      font-weight:700;
 }
@@ -2156,6 +2207,57 @@ a{
     margin-top: 24px;
 }
 
+.mobile .contact_me .mobile_qq{
+	width: 138px;
+    height: 150px;
+    left: -55px;
+    top: -165px;
+    border: 2px solid #337ab7;
+	background:url(../images/qq.png) left top no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+}
+
+.mobile .contact_me .mobile_qq:after{
+	content: "";
+	position: absolute;
+	right: 55px;
+	width: 0;
+	height: 0;
+	border-left: 12px solid transparent;
+	border-top: 12px solid #337ab7;
+	border-right: 12px solid transparent;
+	top:150px;
+	border-radius:2px;
+}
+
+.mobile .contact_me .mobile_wechat{
+	width: 138px;
+    height: 150px;
+    left: -55px;
+    top: -165px;
+    border: 2px solid #337ab7;
+	background:url(../images/wx.png) left top no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+}
+
+.mobile .contact_me .mobile_wechat:after{
+	content: "";
+	position: absolute;
+	right: 55px;
+	width: 0;
+	height: 0;
+	border-left: 12px solid transparent;
+	border-top: 12px solid #337ab7;
+	border-right: 12px solid transparent;
+	top:150px;
+	border-radius:2px;
+}
+
+
 .contact_me a{
 	width: 34px;
     height: 34px;
@@ -2176,6 +2278,19 @@ a{
 .mobile_about_me,.mobile_skills{
 	width:92%;
 	margin:0 auto;
+}
+
+.mobile_skills p{
+    text-align: justify;
+    font-size: 14px;
+    line-height: 32px;
+}
+
+.mobile_about_me p{
+	text-indent: 32px;
+    text-align: justify;
+    font-size: 14px;
+    line-height: 32px;
 }
 
 
