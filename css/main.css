@@ -2171,10 +2171,17 @@ a{
 		height:70px;
 	}
 
+	.head_pic{
+		display:block;
+	}
+
 	.head_pic img{
-		width:50px;
-		height:50px;
+		width:40px;
+		height:40px;
+		display:inline-block;
+		float:left;
 		border-radius:50%;
+		margin:10px 0 0 15px;
 	}
 
 	.music_pic{
@@ -2183,8 +2190,7 @@ a{
 	}
 
 	.head_info{
-		height:25px;
-		line-height:25px;
+		display:none;
 	}
 
 	.head_info span{
