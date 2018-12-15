@@ -488,22 +488,21 @@ window.onload = function(){
 		    touchstart: function(e){
 		        longClick=0;//设置初始为0
 		        timeOutEvent = setTimeout(function(){
-		          	return		 //长按执行
+		          	clearTimeout(timeOutEvent);	 //长按执行
 		            longClick=1;//假如长按，则设置为1
 		        },500);
-		         clearTimeout(timeOutEvent);
+		        
 		    },
 		    touchmove: function(e){
-		       
 		        timeOutEvent = 0;
-		        e.preventDefault();
+		        // e.preventDefault();
 		    },
 		    touchend: function(e){
 		        clearTimeout(timeOutEvent);
 		        if(timeOutEvent!=0 && longClick==0){//点击
 		           return
 		        }
-		        return false;
+		        // return false;
 		    }
 		});
 
