@@ -493,28 +493,32 @@ window.onload = function(){
 	}
 	else{
 	   //这里执行的是移动端的代码；
-	  	$("#body").on({
-		    touchstart: function(e){
-		        longClick=0;//设置初始为0
-		        timeOutEvent = setTimeout(function(){
-		          alert('1')   //长按执行
-		            longClick=1;//假如长按，则设置为1
-		        },500);
-		    },
-		    touchmove: function(){
-		        clearTimeout(timeOutEvent);
-		        timeOutEvent = 0;
-		        e.preventDefault();
-		    },
-		    touchend: function(e){
-		        clearTimeout(timeOutEvent);
-		        if(timeOutEvent!=0 && longClick==0){//点击
-		           return
-		        }
-		        return false;
-		    }
-		});
+	 //  	$("#body").on({
+		//     touchstart: function(e){
+		//         longClick=0;//设置初始为0
+		//         timeOutEvent = setTimeout(function(){
+		//           alert('1')   //长按执行
+		//             longClick=1;//假如长按，则设置为1
+		//         },500);
+		//     },
+		//     touchmove: function(){
+		//         clearTimeout(timeOutEvent);
+		//         timeOutEvent = 0;
+		//         e.preventDefault();
+		//     },
+		//     touchend: function(e){
+		//         clearTimeout(timeOutEvent);
+		//         if(timeOutEvent!=0 && longClick==0){//点击
+		//            return
+		//         }
+		//         return false;
+		//     }
+		// });
 
+	  	var $body = document.getElementById('body');
+	  	$body.addEventListener('contextmenu', function(e){
+	    e.preventDefault();
+	  });
 
 		document.body.addEventListener("touchstart", function () {})
 	   	var $$$flag = true;
