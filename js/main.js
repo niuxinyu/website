@@ -354,7 +354,6 @@ window.onload = function(){
 	// 联系方式上边的文字
 	$('#pc_but').find('span').hover(function() {
 		// console.log($(this).index())
-		var a=1;
 		$(this).parent().next().children().eq($(this).index()).css({opacity:1}).siblings().css({opacity:0});
 		// $(this).eq($(this).index()).after('<p class="about_me">关于我</p>');
 
@@ -373,9 +372,9 @@ window.onload = function(){
 
 	// 手机端
 	$('.contact_me').find('img').hover(function() {
-		$(this).next('span').css({opacity:1})
+		$(this).next('span').css({opacity:1,display:'block'})
 	}, function() {
-		$(this).next('span').css({opacity:0})
+		$(this).next('span').css({opacity:0,diplay:'block'})
 	});
 
 	
@@ -431,15 +430,7 @@ window.onload = function(){
 		jR3DCarousel.showNextSlide();		
 	});
 	
-	// function getSlides(no){
-	// 	slides = [];
-	// 	for ( var i = 0; i < no; i++) {
-	// 		slides.push({src: 'https://unsplash.it/'+Math.floor(1366-Math.random()*200)+''+Math.floor(768+Math.random()*200)})
-	// 	}
-	// 	return slides;
-	// }
 	
-	//carouselProps.slides = getSlides(7);
 	setUp()
 
 
@@ -493,32 +484,32 @@ window.onload = function(){
 	}
 	else{
 	   //这里执行的是移动端的代码；
-	 //  	$("#body").on({
-		//     touchstart: function(e){
-		//         longClick=0;//设置初始为0
-		//         timeOutEvent = setTimeout(function(){
-		//           alert('1')   //长按执行
-		//             longClick=1;//假如长按，则设置为1
-		//         },500);
-		//     },
-		//     touchmove: function(){
-		//         clearTimeout(timeOutEvent);
-		//         timeOutEvent = 0;
-		//         e.preventDefault();
-		//     },
-		//     touchend: function(e){
-		//         clearTimeout(timeOutEvent);
-		//         if(timeOutEvent!=0 && longClick==0){//点击
-		//            return
-		//         }
-		//         return false;
-		//     }
-		// });
+	  	$("#body").on({
+		    touchstart: function(e){
+		        longClick=0;//设置初始为0
+		        timeOutEvent = setTimeout(function(){
+		          	return	false		 //长按执行
+		            longClick=1;//假如长按，则设置为1
+		        },500);
+		    },
+		    touchmove: function(e){
+		        clearTimeout(timeOutEvent);
+		        timeOutEvent = 0;
+		        e.preventDefault();
+		    },
+		    touchend: function(e){
+		        clearTimeout(timeOutEvent);
+		        if(timeOutEvent!=0 && longClick==0){//点击
+		           return
+		        }
+		        return false;
+		    }
+		});
 
-	  	var $body = document.getElementById('body');
-	  	$body.addEventListener('contextmenu', function(e){
-	    e.preventDefault();
-	  });
+	  // 	var $body = document.getElementById('body');
+	  // 	$body.addEventListener('contextmenu', function(e){
+	  //   e.preventDefault();
+	  // });
 
 		document.body.addEventListener("touchstart", function () {})
 	   	var $$$flag = true;
