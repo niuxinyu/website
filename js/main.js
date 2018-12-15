@@ -491,9 +491,10 @@ window.onload = function(){
 		          	return		 //长按执行
 		            longClick=1;//假如长按，则设置为1
 		        },500);
+		         clearTimeout(timeOutEvent);
 		    },
 		    touchmove: function(e){
-		        clearTimeout(timeOutEvent);
+		       
 		        timeOutEvent = 0;
 		        e.preventDefault();
 		    },
