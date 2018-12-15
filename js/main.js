@@ -488,7 +488,7 @@ window.onload = function(){
 		    touchstart: function(e){
 		        longClick=0;//设置初始为0
 		        timeOutEvent = setTimeout(function(){
-		          	return	false		 //长按执行
+		          	return		 //长按执行
 		            longClick=1;//假如长按，则设置为1
 		        },500);
 		    },
