@@ -160,7 +160,7 @@ a{
 	left:30%;
 	width:50%;
 	height:25px;
-	background-image:url(../images/播放.png);
+	background:url(../images/播放.png) left top no-repeat;
 	background-size:100% 100%;
 	-webkit-transition: opacity 500ms ease;
 	-o-transition: opacity 500ms ease;
@@ -489,6 +489,137 @@ a{
 	height:200px;
 }
 
+/*ie*/
+.ie_skill_list{
+	display:none;
+}
+
+
+#skill_info {
+	margin: 50px auto 0;
+	width: 100%;
+	line-height: 30px;
+}
+
+#skill_info p {
+	text-align: center;
+}
+
+#skill_list {
+	/*margin: 20px auto;*/
+	width: 100%;
+	font-size: 16px;
+	/*height: 400px;*/
+}
+
+#skill_list ul {
+	list-style: disc;
+	list-style-position: inside;
+}
+
+.skill_list_content {
+	float: left;
+	margin: 0 8%;
+	position: relative;
+	height: 400px;
+	/*visibility: hidden;*/
+}
+
+.skill_icon {
+    cursor: pointer;
+    background-size: 100%;
+	width: 88px;
+	height: 100px;
+	text-align: center;
+	margin: 30px auto;
+    webkit-transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+        -ms-transform: scale(1.0);
+            transform: scale(1.0);
+    -webkit-transition : -webkit-transform .25s;
+    transition : -webkit-transform .25s;
+    -o-transition : transform .25s;
+    transition : transform .25s;
+    transition : transform .25s, -webkit-transform .25s;
+}
+
+.skill_icon:hover{
+    webkit-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+            transform: scale(1.2);
+    -webkit-transition : -webkit-transform .25s;
+    transition : -webkit-transform .25s;
+    -o-transition : transform .25s;
+    transition : transform .25s;
+    transition : transform .25s, -webkit-transform .25s;
+}
+
+#skill_icon1{
+	background:url(../images/html.png);
+}
+
+#skill_icon2{
+    background: url(../images/css.png) no-repeat ;
+}
+
+#skill_icon3{
+    background: url(../images/js.png) no-repeat ;
+}
+
+#skill_icon4{
+    background: url(../images/jq.png) no-repeat ;
+}
+
+.skill_name {
+	text-align: center;
+	width: 100%;
+	position: relative;
+}
+
+.skill_flag {
+	margin: 20px auto;
+	width: 20px;
+	height: 20px;
+	background: url(../images/skill_flag.png);
+	-webkit-transition-duration: 1s;
+	-o-transition-duration: 1s;
+	   transition-duration: 1s;
+}
+
+.skill_flag_scale {
+	-webkit-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	    transform: rotate(180deg);
+}
+
+.skill_int {
+	position: absolute;
+	top: 190px;
+	width: 220px;
+	left: -80px;
+	font-size: 14px;
+	line-height: 20px;
+	display: none;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 15px;
+	background: #c8c8dc;
+}
+
+.skill_int li {
+	font-size: 12px;
+	padding-left: 15px;
+}
+
+.skill_scale {
+	-webkit-animation: skill_scale 1s;
+	animation: skill_scale 1s;
+	visibility: visible;
+}
+
+
+/*其他浏览器*/
 .skill_html{
 	margin:10px 25px 0;
 	width:200px;
@@ -741,7 +872,7 @@ a{
 	font-size: 24px;
 	font-family: "微软雅黑";
 	font-style: normal;
-	padding: 0 15px;
+	padding: 0 24px;
 }
 
 #pc .p3_1{
@@ -757,15 +888,16 @@ a{
 }
 
 #pc .p3_4{
-	color: #9e966e;
+	color: #f63;
 }
 
 #pc .p4{
-	margin-top: 14px;
+	text-align:center;
+	margin-top: 20px;
 	font-size: 18px;
 	color: #666;
 	font-family: "微软雅黑";
-	line-height: 35px;
+	line-height: 45px;
 }
 
 /*侧边按钮设置*/
@@ -1007,7 +1139,7 @@ a{
 }
 
 #pc .contact_{
-	width: 318px;
+	width: 370px;
 	margin: 0 auto;
 	height: auto;
 	margin-top: 24px;
@@ -1677,6 +1809,32 @@ a{
 	}
 }
 
+/*ie skill放大*/
+@-webkit-keyframes skill_scale {
+	0% {
+		opacity: 0.1;
+		-webkit-transform:scale(0.3);
+		transform:scale(0.3);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);	
+	}
+}
+
+@keyframes skill_scale {
+	0% {
+		opacity: 0.1;
+		-webkit-transform:scale(0.3);
+		        transform:scale(0.3);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		        transform: scale(1);	
+	}
+}
 
 
 /*不同段落的进入速度分开设置*/
@@ -1775,7 +1933,7 @@ a{
 		display:inline-block;
 		float:left;
 		border-radius:50%;
-		margin:10px 0 0 15px;
+		margin:12px 0 0 15px;
 	}
 
 	.music_pic{

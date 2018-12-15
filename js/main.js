@@ -13,10 +13,15 @@ function IsPC() {
 		return flag;
 	};
 
-// $(document).ready(function(){
-// 	$('.head').trigger('click')
-// })
+function isIE() {
+     if (!!window.ActiveXObject || "ActiveXObject" in window){
+         return true;
+     }else{
+         return false;
+     }
+ }    
 
+console.log(isIE())
 
 window.onload = function(){
 // 	document.onmousedown=function(e){
@@ -32,7 +37,19 @@ window.onload = function(){
    // 禁止img拖拽
 	for(i in document.images)document.images[i].ondragstart=function(){return false;};
 	var isPC=IsPC();
+	var isIe=isIE();
 	if(isPC){
+
+		if(isIe){
+			$('.music_control').css({top:'40%'});
+			alert('本网页在ie浏览器下会存在问题，建议使用其他浏览器');
+			$('.slide_con').css({top:'110px'});
+			$('.skill_list').children().css({display:'none'});
+			$('.ie_skill_list').css({display:'block'});
+			$('.skill_content').css({margin:0});
+			$('.skill_title').css({margin:0});
+			$('#skill_info').css({margin:0});
+		}
 
 
 	   // 这里执行的是PC端的代码；
@@ -71,51 +88,76 @@ window.onload = function(){
 					}
 				}
 				if(this.activeIndex==2){
-					 $(".circleChart#0").circleChart({
-							size: 300,
-							value: 80,
-							text: 0,
-							startAngle:-20,
-							color:"#4285F4",
-							onDraw: function(el, circle) {
-								circle.text(Math.round(circle.value) + "%");
-								// console.log(el);
-								}
-							});
-
-							$(".circleChart#1").circleChart({
+					if(!isIe){
+						 $(".circleChart#0").circleChart({
 								size: 300,
-								value: 75,
+								value: 80,
 								text: 0,
-								color:"#EA4335",
 								startAngle:-20,
+								color:"#4285F4",
 								onDraw: function(el, circle) {
 									circle.text(Math.round(circle.value) + "%");
-								}
-							});
+									// console.log(el);
+									}
+								});
 
-							$(".circleChart#2").circleChart({
-								size: 300,
-								value: 60,
-								text: 0,
-								color:"#FBBC05",
-								startAngle:-20,
-								onDraw: function(el, circle) {
-									circle.text(Math.round(circle.value) + "%");
-								}
-							});
+								$(".circleChart#1").circleChart({
+									size: 300,
+									value: 75,
+									text: 0,
+									color:"#EA4335",
+									startAngle:-20,
+									onDraw: function(el, circle) {
+										circle.text(Math.round(circle.value) + "%");
+									}
+								});
 
-							$(".circleChart#3").circleChart({
-								size: 300,
-								value: 70,
-								text: 0,
-								color:"#34A853",
-								startAngle:-20,
-								onDraw: function(el, circle) {
-									circle.text(Math.round(circle.value) + "%");
+								$(".circleChart#2").circleChart({
+									size: 300,
+									value: 60,
+									text: 0,
+									color:"#FBBC05",
+									startAngle:-20,
+									onDraw: function(el, circle) {
+										circle.text(Math.round(circle.value) + "%");
+									}
+								});
+
+								$(".circleChart#3").circleChart({
+									size: 300,
+									value: 70,
+									text: 0,
+									color:"#34A853",
+									startAngle:-20,
+									onDraw: function(el, circle) {
+										circle.text(Math.round(circle.value) + "%");
+									}
+								});
+						}
+
+							else{
+								$(".skill_icon").hover(function(){
+								$(".skill_int").each(function(){
+									if($(this).is(":visible")){
+										$(this).slideUp(200);
+										$(this).prev().removeClass("skill_flag_scale");
+									}
+								});
+									if($(this).siblings(".skill_int").is(":hidden")){
+										$(this).siblings(".skill_int").slideDown(400);
+										$(this).siblings(".skill_flag").addClass("skill_flag_scale");
+									}else{
+										$(this).siblings(".skill_int").slideUp(200);
+										$(this).siblings(".skill_flag").removeClass("skill_flag_scale");
+									}
+								},function(){
+									$(this).siblings(".skill_int").slideUp(200);
+										$(this).siblings(".skill_flag").removeClass("skill_flag_scale");
 								}
-							});
-				}
+								);	
+							}
+					}
+							
 				
 				if(this.activeIndex==3){
 				$('.slide_con').addClass('fadeInLeft');
@@ -484,27 +526,30 @@ window.onload = function(){
 	}
 	else{
 	   //这里执行的是移动端的代码；
-	  	$("#body").on({
-		    touchstart: function(e){
-		        longClick=0;//设置初始为0
-		        timeOutEvent = setTimeout(function(){
-		          	return false				 //长按执行
-		            longClick=1;//假如长按，则设置为1
-		        },500);
+	 //  	$("#body").on({
+		//     touchstart: function(e){
+		//         longClick=0;//设置初始为0
+		//         timeOutEvent = setTimeout(function(){
+		//           	return false				 //长按执行
+		//             longClick=1;//假如长按，则设置为1
+		//         },500);
 		        
-		    },
-		    touchmove: function(e){
-		        timeOutEvent = 0;
-		        // e.preventDefault();
-		    },
-		    touchend: function(e){
-		        clearTimeout(timeOutEvent);
-		        if(timeOutEvent!=0 && longClick==0){//点击
-		           return
-		        }
-		        // return false;
-		    }
-		});
+		//     },
+		//     touchmove: function(e){
+		//         timeOutEvent = 0;
+		//         // e.preventDefault();
+		//     },
+		//     touchend: function(e){
+		//         clearTimeout(timeOutEvent);
+		//         if(timeOutEvent!=0 && longClick==0){//点击
+		//            return
+		//         }
+		//         // return false;
+		//     }
+		// });
+
+		document.oncopy = function(){ return false; };
+
 
 	  // 	var $body = document.getElementById('body');
 	  // 	$body.addEventListener('contextmenu', function(e){
