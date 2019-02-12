@@ -1194,10 +1194,11 @@ input{
     max-width: 1100px;
     height: 11.33vw;
     width: 100%;
-    background-color:rgb(213, 20, 51);
+    background-color:rgb(255,255,255);
     position: fixed;
     bottom: 0;
     z-index: 99;
+    box-shadow: 0 0 6px 0 #666;
 }
 
 .footer a{
