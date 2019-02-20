@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>VI的主页</title>
-	<link rel="icon" href="images/head_pic_1.png" type="image/x-icon"/>
+	<link rel="icon" href="images/head_pic_1.png" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/main.min.css">
+	<link rel="stylesheet" type="text/css" href="css/load.css">
 </head>
-<body onload="load()"  onselectstart="return false" id="body">
+
+<body onselectstart="return false" id="body">
 	<!-- 首页加载动画 -->
-	<div id="loading">
-		<div id="loading-center">
-			<div id="loading-center-absolute">
-				<div class="object" id="object_one"></div>
-				<div class="object" id="object_two"></div>
-				<div class="object" id="object_three"></div>
-				<div class="object" id="object_four"></div>
-			</div>
-		</div>
+	<div id="loader-wrapper" class="loader-wrapper">
+		<div id="loader"></div>
+		<div class="loader-section section-left"></div>
+		<div class="loader-section section-right"></div>
+		<div class="load_title" id="load_title">欢迎访问我的简历(＝^ω^＝)</div>
 	</div>
+
 
 
 	<div class="head" id="head">
@@ -37,7 +37,7 @@
 			<div class="music_pic"></div>
 			<div class="music_control" id="music_control"></div>
 		</div>
-		
+
 	</div>
 
 	<div class="swiper-container swiper-container-vertical" id="pc">
@@ -50,15 +50,16 @@
 							<span class="welcome_info">Great hopes make great man.</span>
 							<span>您好，我叫牛鑫宇</span>
 							<span>正在努力成为一名前端开发工程师</span>
-							<span onselectstart="event.cancelBubble=true"><a href="javascript:;">2659546337@qq.com</a></span>
+							<span onselectstart="event.cancelBubble=true"><a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=dEZCQU1BQEJHR0M0BQVaFxsZ"
+								 style="text-decoration:none;">2659546337@qq.com</a></span>
 						</div>
-						
+
 					</div>
 				</div>
 			</div>
-	
+
 			<div class="swiper-slide show2 pages">
-				
+
 				<div class="main_con">
 					<div class="left_img"><img src="images/head_pic_1.png" alt="图片一"></div>
 					<div class="right_info">
@@ -77,42 +78,42 @@
 
 					<div id="skill_info">
 						<p>前端的知识面非常广泛,吃透它需要具有持之以恒的精神。而在前端开发的学习工作中，重中之重就是对于原生javascript的理解和把握，从而在此基础上学习新的框架（JQuery、Bootstrap、Vue、Node等）。</p>
-						
+
 					</div>
 					<hr>
-					 <div id="skill_list">
-	                  	<div class="skill_html">
-	                  		<h3 style="text-align: center;margin-bottom: 15px">HTML</h3>
+					<div id="skill_list">
+						<div class="skill_html">
+							<h3 style="text-align: center;margin-bottom: 15px">HTML</h3>
 							<div class="circleChart " id="0"></div>
 							<div class="clear"></div>
-	                  	</div>
+						</div>
 
-	                  	<div class="skill_css">
-	                  		<h3 style="text-align: center;margin-bottom: 15px">CSS</h3>
+						<div class="skill_css">
+							<h3 style="text-align: center;margin-bottom: 15px">CSS</h3>
 							<div class="circleChart " id="1"></div>
 							<div class="clear"></div>
-	                  	</div>
+						</div>
 
-	                  	<div class="skill_js">
-	                  		<h3 style="text-align: center;margin-bottom: 15px">JavaScript</h3>
+						<div class="skill_js">
+							<h3 style="text-align: center;margin-bottom: 15px">JavaScript</h3>
 							<div class="circleChart " id="2"></div>
 							<div class="clear"></div>
-	                  	</div>
+						</div>
 
-	                  	<div class="skill_jq">
-	                  		<h3 style="text-align: center;margin-bottom: 15px">jQuery</h3>
+						<div class="skill_jq">
+							<h3 style="text-align: center;margin-bottom: 15px">jQuery</h3>
 							<div class="circleChart " id="3"></div>
 							<div class="clear"></div>
-	                  	</div>
-	                </div>
+						</div>
+					</div>
 
-	                <!-- ie -->
-	                <div id="skill_list" class="ie_skill_list">
+					<!-- ie -->
+					<div id="skill_list" class="ie_skill_list">
 						<div class="skill_list_content" id="skill_list1">
 							<div class="skill_icon" id="skill_icon1"></div>
 							<div class="skill_flag"></div>
 							<div class="skill_int" id="skill_int1">
-								<ul>	
+								<ul>
 									<li>深刻理解Web标准</li>
 									<li>熟练运用html标签</li>
 									<li>熟悉xml及xhtml标记语言</li>
@@ -153,7 +154,7 @@
 							</div>
 						</div>
 					</div>
-          	  </div>
+				</div>
 
 
 			</div>
@@ -168,22 +169,22 @@
 						<div class="slide_con">
 							<ul class="slide_pics">
 								<li><a href="https://niuxinyu.github.io/JD/JD.html">
-									<img src="images/demo1.png" alt="幻灯片" style="width:800px;height:450px;"/>
-									<span class="show_1">商城类页面</span>
-								</a></li>
-									
-								<li><a href="https://niuxinyu.github.io/JD_Login/login.html">
-									<img src="images/demo2.png" alt="幻灯片" style="width: 800px;height: 450px;" />
-									<span>登录界面</span>
-								</a></li>
-			
-								<li><a href="https://niuxinyu.github.io/JD_Register/register.html">
-									<img src="images/demo3.png" alt="幻灯片" style="width: 800px;height: 450px;" />
-									<span>注册页面</span>
-								</a></li>
-			
+										<img src="images/demo1.png" alt="幻灯片" style="width:800px;height:450px;" />
+										<span class="show_1">商城类页面</span>
+									</a></li>
 
-<!-- 								<li><a href="javascript:;">
+								<li><a href="https://niuxinyu.github.io/JD_Login/login.html">
+										<img src="images/demo2.png" alt="幻灯片" style="width: 800px;height: 450px;" />
+										<span>登录界面</span>
+									</a></li>
+
+								<li><a href="https://niuxinyu.github.io/JD_Register/register.html">
+										<img src="images/demo3.png" alt="幻灯片" style="width: 800px;height: 450px;" />
+										<span>注册页面</span>
+									</a></li>
+
+
+								<!-- <li><a href="javascript:;">
 									<img src="images/a1.png" alt="幻灯片" />
 									<span>展示四</span>
 								</a></li> -->
@@ -246,12 +247,11 @@
 									<img src="images/微信.svg" alt="微信">
 									<span class="wechat"></span>
 								</a>
-								
+
 								<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=dEZCQU1BQEJHR0M0BQVaFxsZ" style="text-decoration:none;">
 									<img src="images/邮箱.svg" alt="邮箱">
 									<span class="email">邮箱</span>
 								</a>
-
 								<div class="clear"></div>
 							</div>
 						</div>
@@ -323,23 +323,23 @@
 				<p></p>
 			</div>
 			<p>
-			
-					1.热爱前端，喜欢用最扎实的代码做出效果上最炫，代码上最合理的页面，能够兼容主流各种浏览器，比如ie8以上, chrome,firefox,opera。<br>
 
-					2.熟悉使用photoshop把设计的图片按照需要交互的要求进行效果实现。<br>
+				1.热爱前端，喜欢用最扎实的代码做出效果上最炫，代码上最合理的页面，能够兼容主流各种浏览器，比如ie8以上, chrome,firefox,opera。<br>
 
-					3.使用移动端的rem布局,响应式布局,解决不同移动端设备的适配和兼容问题。<br>
+				2.熟悉使用photoshop把设计的图片按照需要交互的要求进行效果实现。<br>
 
-					4.熟悉bootstrap,Jquery类库进行pc端项目快速开发, 熟练使用Swiper,sui等插件进行移动端项目的开发。<br>
+				3.使用移动端的rem布局,响应式布局,解决不同移动端设备的适配和兼容问题。<br>
 
-					5.熟练使用github进行代码管理，使用git版本管理工具。<br>
+				4.熟悉bootstrap,Jquery类库进行pc端项目快速开发, 熟练使用Swiper,sui等插件进行移动端项目的开发。<br>
 
-					6.熟悉原生JS,熟悉JavaScript的面向对象编程，了解作用域以及闭包的原理。<br>
+				5.熟练使用github进行代码管理，使用git版本管理工具。<br>
 
-					7.熟练使用Chrome 、Firefox等主流浏览器的开发人员工具调试页面。<br>
+				6.熟悉原生JS,熟悉JavaScript的面向对象编程，了解作用域以及闭包的原理。<br>
 
-		</p>
-	
+				7.熟练使用Chrome 、Firefox等主流浏览器的开发人员工具调试页面。<br>
+
+			</p>
+
 			<div class="skills_photo">
 				<div class="skills_show">
 					<em>HTML</em>
@@ -357,7 +357,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="skills_photo">
 				<div class="skills_show">
 					<em>JavaScript</em>
@@ -376,7 +376,7 @@
 				</div>
 			</div>
 
-			
+
 
 
 		</div>
@@ -395,11 +395,11 @@
 
 
 		</div>
-		
+
 
 
 	</div>
-	<div id="up_icon"></div>
+	<div id="up_icon" class="up_icon"></div>
 
 
 
@@ -409,4 +409,5 @@
 	<script type="text/javascript" src="js/jR3DCarousel.min.js"></script>
 	<script type="text/javascript" src="js/main.min.js"></script>
 </body>
+
 </html>
