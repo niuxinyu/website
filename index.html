@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/main.min.css">
 	<link rel="stylesheet" type="text/css" href="css/load.min.css">
+	<link rel="stylesheet" href="css/wowslider.css">
 </head>
 
 <body onselectstart="return false" id="body">
@@ -23,43 +24,63 @@
 
 
 
-	<div class="head" id="head">
-		<div class="head_pic">
-			<img src="images/xiao_head.jpg" alt="图片">
-			<div class="head_info">
-				<span>vi</span>
-				<i> 's</i>
-				resume
-			</div>
-		</div>
 
-		<div class="music_player">
-			<div class="music_pic"></div>
-			<div class="music_control" id="music_control"></div>
+	<div class="head_pic">
+		<img src="images/xiao_head.jpg" alt="图片">
+		<div class="head_info">
+			<span>vi</span>
+			<i> 's</i>
+			resume
 		</div>
-
 	</div>
+
+	<div class="music_player">
+		<div class="music_pic"></div>
+		<div class="music_control" id="music_control"></div>
+	</div>
+
+
 
 	<div class="swiper-container swiper-container-vertical" id="pc">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide show1 pages">
-				<div class="box">
-					<div class="image-shadow js-tilt-container">
-						<div class="wel_info">
-							<span class="welcome">Hello,I'm VI</span>
-							<span class="welcome_info">Great hopes make great man.</span>
-							<span>您好，我叫牛鑫宇</span>
-							<span>正在努力成为一名前端开发工程师</span>
-							<span onselectstart="event.cancelBubble=true"><a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=dEZCQU1BQEJHR0M0BQVaFxsZ"
-								 style="text-decoration:none;">2659546337@qq.com</a></span>
-						</div>
 
+				<div class="bg">
+					<div id="wowslider-container">
+						<div class="ws_images">
+							<ul>
+								<li><img src="images/slider/1.jpg" id="wows1_0"/></li>
+								<li><img src="images/slider/2.jpg" id="wows1_1"/></li>
+								<li><img src="images/slider/3.jpg" id="wows1_2"/></li>
+								<li><img src="images/slider/4.jpg" id="wows1_3"/></li>
+								<li><img src="images/slider/5.jpg" id="wows1_4"/></li>
+								<li><img src="images/slider/6.jpg" id="wows1_5"/></li>
+							</ul>
+						</div>
 					</div>
 				</div>
+
+				<div class="mask">
+					<div class="box">
+						<div class="image-shadow js-tilt-container">
+							<div class="wel_info">
+								<span class="welcome">Hello,I'm VI</span>
+								<span class="welcome_info">Great hopes make great man.</span>
+								<span>您好，我叫牛鑫宇</span>
+								<span>正在努力成为一名前端开发工程师</span>
+								<span onselectstart="event.cancelBubble=true"><a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=dEZCQU1BQEJHR0M0BQVaFxsZ"
+																				 style="text-decoration:none;">2659546337@qq.com</a></span>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+
 			</div>
 
 			<div class="swiper-slide show2 pages">
-
+				<div class="show2_mask"></div>
 				<div class="main_con">
 					<div class="left_img"><img src="images/head_pic_1.png" alt="图片一"></div>
 					<div class="right_info">
@@ -71,6 +92,7 @@
 
 
 			<div class="swiper-slide show3 pages">
+				<div class="show3_mask"></div>
 				<div id="skill_content">
 					<div class="skill_title">
 						<h1>前端技能</h1>
@@ -108,7 +130,7 @@
 					</div>
 
 					<!-- ie -->
-					<div id="skill_list" class="ie_skill_list">
+					<div class="ie_skill_list">
 						<div class="skill_list_content" id="skill_list1">
 							<div class="skill_icon" id="skill_icon1"></div>
 							<div class="skill_flag"></div>
@@ -160,53 +182,57 @@
 			</div>
 
 			<div class="swiper-slide show4 pages">
+				<div class="show4_mask"></div>
 				<div class="demo">
 					<div id="demo_content">
 						<div class="title">
 							<h1>作品展示</h1>
 						</div>
-						<hr>
+						<!--<hr>-->
 						<div class="slide_con">
-							<ul class="slide_pics">
-								<li><a href="https://niuxinyu.github.io/JD/JD.html">
-										<img src="images/demo1.png" alt="幻灯片" style="width:800px;height:450px;" />
-										<span class="show_1">商城类页面</span>
-									</a></li>
+							<button class="slide_control slide_control_prev prev">
+								<!--<i class="ifont"></i>-->
+							</button>
+							<div class="slide_list">
+								<div class="slide_wrapper">
+									<div class="slide">
+										<a href="https://niuxinyu.github.io/JD/JD.html" class="slide_a">
+											<div class="slide_pic">
+												<img src="images/demo1.png" alt=""><span>商城类页面</span></div>
+										</a>
+									</div>
+									<div class="slide">
+										<a href="https://niuxinyu.github.io/JD_Login/login.html" class="slide_a">
+											<div class="slide_pic">
+												<img src="images/demo2.png" alt="">
+												<span>登录界面</span>
+											</div>
+										</a>
+									</div>
+									<div class="slide">
+										<a href="https://niuxinyu.github.io/JD_Register/register.html" class="slide_a">
+											<div class="slide_pic">
+												<img src="images/demo3.png" alt="">
+												<span>注册页面</span>
 
-								<li><a href="https://niuxinyu.github.io/JD_Login/login.html">
-										<img src="images/demo2.png" alt="幻灯片" style="width: 800px;height: 450px;" />
-										<span>登录界面</span>
-									</a></li>
+											</div>
+										</a>
+									</div>
 
-								<li><a href="https://niuxinyu.github.io/JD_Register/register.html">
-										<img src="images/demo3.png" alt="幻灯片" style="width: 800px;height: 450px;" />
-										<span>注册页面</span>
-									</a></li>
-
-
-								<!-- <li><a href="javascript:;">
-									<img src="images/a1.png" alt="幻灯片" />
-									<span>展示四</span>
-								</a></li> -->
-
-							</ul>
-							<div class="prev">
-								<!-- <img src="images/箭头_左.svg" alt="javascript:;"> -->
+								</div>
 							</div>
-							<div class="next">
-								<!-- <img src="images/箭头_右.svg" alt="javascript:;"> -->
-							</div>
-							<ul class="points"></ul>
+							<button class="slide_control slide_control_next next">
+								<!--<i class="ifont"></i>-->
+							</button>
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="swiper-slide show5 pages">
+				<div class="show5_mask"></div>
 				<div class="contact_me">
-					<!-- <div class="right_border"></div> -->
 					<div class="clear"></div>
-					<!-- <div class="foot_border"></div> -->
 					<div class="info">
 						<div class="en_info">
 							<p class="p1">CONTACT</p>
@@ -401,12 +427,14 @@
 	</div>
 	<div id="up_icon"></div>
 
-
-
-	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="js/swiper.min.js"></script>
-	<script type="text/javascript" src="js/circleChart.min.js"></script>
-	<script type="text/javascript" src="js/jR3DCarousel.min.js"></script>
+	<script type="text/javascript" src="js/demo-circle.min.js"></script>
+	<script type="text/javascript" src="js/mobile-demo.min.js"></script>
+	<script type="text/javascript" src="js/wow.min.js"></script>
+	<script type="text/javascript" src="js/wowslider.min.js"></script>
+	<script type="text/javascript" src="js/wowslider-script.min.js"></script>
+	<script type="text/javascript" src="js/jquery-幻灯片.min.js"></script>
 	<script type="text/javascript" src="js/main.min.js"></script>
 </body>
 
