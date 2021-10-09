@@ -110,9 +110,17 @@ function init() {
 }
 
 function initSwiper() {
-  createSwiper({
+  const {
+    swiper
+  } = createSwiper()
+  swiper({
     el: '#pc',
     // pagination: '.swiper-pagination'
+    on: {
+      transitionStart (o) {
+        console.log(o);
+      }
+    }
   })
 
 

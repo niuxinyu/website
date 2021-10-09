@@ -6,23 +6,8 @@ function querySelector(tag) {
   return document.querySelector(tag) || null
 }
 
-// 向上滚动 true；向下滚动，false
-function mousewheel(callback) {
-  /**
-   * @param {WheelEvent} e
-   * */
-  function mousewheelHandler(e) {
-    callback(e.wheelDelta > 0)
-  }
-
-  document.addEventListener('mousewheel', mousewheelHandler)
-  return () => {
-    document.removeEventListener('mousewheel', mousewheelHandler)
-  }
-}
-
 /**
- * @param {HTMLElement | Window} target
+ * @param {Document | HTMLElement | Window} target
  * @param {keyof HTMLElementEventMap} type
  * @param {Function} handler
  * @return {Function}
@@ -57,6 +42,28 @@ function throttle(fn, wait = 300) {
   }
 }
 
+function pickFromObj (obj, keyList) {
+  let res = {}
+  keyList.forEach(k => {
+    res[k] = obj[k]
+  })
+  return res
+}
+
+function mousewheel(callback) {
+  /**
+   * @param {WheelEvent} e
+   * */
+  function mousewheelHandler(e) {
+    callback(e.wheelDelta > 0)
+  }
+
+  document.addEventListener('mousewheel', mousewheelHandler)
+  return () => {
+    document.removeEventListener('mousewheel', mousewheelHandler)
+  }
+}
+
 function createPagination(total, current, paginationSelector) {
   paginationSelector = typeof paginationSelector === 'string' ? querySelector(paginationSelector) : paginationSelector
   if (!paginationSelector) return
@@ -73,76 +80,155 @@ function createPagination(total, current, paginationSelector) {
 }
 
 /**
- * @param {{el: string, duration: number, pagination: string | HTMLElement, on: {
- *   transitionStart: Function,
- *   transitionEnd: Function,
- *  }}} options
+ * @param {number} start
+ * @param {number} target
+ * @param {number} duration
  * */
-function createSwiper(options) {
-  const el = querySelector(options.el)
-  if (!el) return
-  // 自动滚动到顶部
+function scrollToPos(start, target, duration = 800) {
+  if (start === target) return;
+  if (start < target) {
+    if (target - start < 0.4 || duration === 0) {
+      const {
+        transitionEnd
+      } = this.on || {}
+
+      if (transitionEnd && typeof transitionEnd === "function") {
+        transitionEnd(pickFromObj(this.options, ['el', 'children', 'count', 'scrollTop']) || {})
+      }
+      window.scrollTo(0, target)
+      return
+    }
+    start += (target - start) / (duration / 100)
+  }
+  if (start > target) {
+    if (start - target < 0.4 || duration === 0) {
+      window.scrollTo(0, target)
+      return;
+    }
+    start -= (start - target) / (duration / 100)
+  }
+  window.requestAnimationFrame(() => scrollToPos.call(this, start, target, duration))
+  window.scrollTo(0, start)
+}
+
+/**
+ * @param {HTMLElement | HTMLElement[] | Element | Element[] | any} el
+ * @param {string} styleSheet
+ * */
+function setStyle(el, styleSheet) {
+  if (Array.isArray(el)) {
+    el.forEach(e => {
+      e.style.cssText = styleSheet
+    })
+  } else {
+    el.style.cssText = styleSheet
+  }
+}
+
+/**
+ *  @desc
+ *  第一次采用 translate3d 实现，mac chrome 下有闪烁的问题，未解决
+ *  第二版用 window.scrollTo 实现，也存在问题，首页的动画有的很耗费性能，消耗峰值时候，滚动也会收到影响
+ * */
+function createSwiper() {
   setTimeout(() => {
     window.scrollTo(0, 0)
   })
-  const {
-    duration = 800
-  } = options
-
-  const {
-    transitionStart,
-    transitionEnd
-  } = options.on ? options.on : {}
-
-  const wrapper = el.children[0]
-  const swiperSliderList = wrapper.children
-  let height = swiperSliderList[0].offsetHeight
-
-  function initialSwiperSlideHeight() {
-    for (let item of swiperSliderList) {
-      item.style.cssText = `height: ${height}px`
-    }
-  }
-
-  initialSwiperSlideHeight()
-
-  wrapper.style.cssText = `transform: translate3d(0, 0, 0)`
-
-  let count = 0
-  let resultHeight = 0
-  const callback = debounce(function (up) {
-    if (count >= swiperSliderList.length - 1 && !up) return
-    if (count === 0 && up) return
-    if (!up) {
-      count++
-      resultHeight -= height
-    } else {
-      count--
-      resultHeight += height
-    }
-    if (transitionStart && typeof transitionStart === 'function') {
-      transitionStart(count)
-    }
-    wrapper.style.cssText = `transform: translate3d(0, ${resultHeight}px, 0); transition-duration: ${duration}ms;`
-  })
-  mousewheel(callback)
-  createPagination(swiperSliderList.length, count, options.pagination)
-
 
   const resizeHandler = throttle((e) => {
-    height = window.innerHeight
-    initialSwiperSlideHeight()
+    const options = createSwiper.options
+    options.height = window.innerHeight
+    setStyle(options.children, css('', {
+      height: `${options.height}px`
+    }).renderStyle())
+
+
+    let oldScrollTop = options.scrollTop || 0
+
+    scrollToPos.call(options, oldScrollTop, options.height * options.count, 0)
+
+    options.scrollTop = options.height * (options.count)
+
   })
 
   bindHandler(window, 'resize', resizeHandler)
 
-  function transitionEndHandler(e) {
-    if (e.target !== wrapper) return
-    if (transitionEnd && typeof transitionEnd === 'function') {
-      transitionEnd(count, e)
+  /**
+   * @param {{el: string | HTMLElement, duration: number, pagination: string | HTMLElement, on: {
+   *   transitionStart: Function,
+   *   transitionEnd: Function,
+   *  }}} options
+   * */
+  function swiper(options) {
+    options.el = querySelector(options.el)
+    if (!options.el) return
+    createSwiper.options = options
+    const {
+      duration = 800
+    } = options
+
+    const {
+      transitionStart,
+    } = options.on ? options.on : {}
+
+    const wrapper = options.el.children[0]
+    const swiperSliderList = wrapper.children
+    options.children = Array.from(swiperSliderList)
+    options.height = swiperSliderList[0].offsetHeight
+
+    function initialSwiperSlideHeight() {
+      for (let item of swiperSliderList) {
+        item.style.cssText = `height: ${options.height}px`
+      }
     }
-    wrapper.style.cssText = `transform: translate3d(0, ${resultHeight}px, 0); transition-duration: 0ms;`
+
+    initialSwiperSlideHeight()
+
+    let count = 0
+    let scrollTop = 0
+
+    const callback = debounce(function (up) {
+      if (count >= swiperSliderList.length - 1 && !up) return
+      if (count === 0 && up) return
+      scrollTop = options.scrollTop || scrollTop
+      if (!up) {
+        count++
+        scrollTop += options.height
+      } else {
+        count--
+        scrollTop -= options.height
+      }
+
+      options.count = count
+      options.scrollTop = scrollTop
+
+      if (transitionStart && typeof transitionStart === 'function') {
+        transitionStart(pickFromObj(options, ['el', 'children', 'count', 'scrollTop']))
+      }
+
+      scrollToPos.call(options, window.scrollY, scrollTop, duration)
+    })
+
+    mousewheel(callback)
+
   }
 
-  bindHandler(wrapper, 'transitionend', transitionEndHandler)
+
+  return {
+    swiper
+  }
+
+
+  // createPagination(swiperSliderList.length, count, options.pagination)
+
+
+  // function transitionEndHandler(e) {
+  //   if (e.target !== wrapper) return
+  //   if (transitionEnd && typeof transitionEnd === 'function') {
+  //     transitionEnd(count, e)
+  //   }
+  //   wrapper.style.cssText = `transform: translate3d(0, ${scrollTop}px, 0); transition-duration: 0ms;`
+  // }
+
+  // bindHandler(wrapper, 'transitionend', transitionEndHandler)
 }

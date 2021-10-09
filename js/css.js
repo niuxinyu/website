@@ -153,7 +153,7 @@ css('.top_bar', {
     display: 'flex',
     justifyContent: 'space-between',
     marginTop: '26px',
-    zIndex: 'var(--first-z)'
+    zIndex: 'var(--biggest-z)'
   },
   [
     css('.head_pic', {
@@ -247,9 +247,7 @@ const swiperBgc = [
 ]
 /**@type CSSStyleDeclaration*/
 const swiperMaskCommonStyle = {
-  // position: 'absolute',
-  // left: 0,
-  // top: 0,
+  position: 'absolute',
   width: '100%',
   height: '100%',
   backgroundColor: 'rgba(86,83,100,.7)'

@@ -23,6 +23,7 @@ function normalizePropertyName(propertyName) {
 }
 
 // add 可以添加回调，这样可以在回调函数中访问到当前的 selector
+// add 如果不传入选择器，默认返回不带括号的样式
 function createStyle(selector, styleSheet, context) {
   if (typeof styleSheet === 'function') {
     const res = styleSheet(selector)
@@ -42,7 +43,8 @@ function createStyle(selector, styleSheet, context) {
     key = kebabCase(key)
     styleArr.push(`  ${key}${normalizePropertyName(propertyName)}`)
   })
-  styleArr.push('}')
+
+  selector && styleArr.push('}')
   return styleArr.join('\n')
 }
 
