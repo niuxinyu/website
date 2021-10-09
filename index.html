@@ -1,430 +1,436 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-cn">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>VI的主页</title>
-	<link rel="icon" href="images/head_pic_1.png" type="image/x-icon" />
-	<link rel="stylesheet" type="text/css" href="css/ncss.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>VI的主页</title>
+    <link rel="icon" href="images/head_pic_1.png" type="image/x-icon"/>
+
+    <!--    <link rel="stylesheet" type="text/css" href="css/ncss.min.css">-->
+
+    <link rel="stylesheet" href="/css/wowslider.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/js/css-render.js"></script>
+    <script src="/js/css.js"></script>
 </head>
 
 <body onselectstart="return false" id="body">
-	<!-- 首页加载动画 -->
-	<div id="loader-wrapper" class="loader-wrapper">
-		<div id="loader"></div>
-		<div class="loader-section section-left"></div>
-		<div class="loader-section section-right"></div>
-		<div class="load_title" id="load_title">欢迎访问我的简历(＝^ω^＝)</div>
-	</div>
-
-
-
-
-	<div class="head_pic">
-		<img src="images/xiao_head.jpg" alt="图片">
-		<div class="head_info">
-			<span>vi</span>
-			<i> 's</i>
-			resume
-		</div>
-	</div>
-
-	<div class="music_player">
-		<div class="music_pic"></div>
-		<div class="music_control" id="music_control"></div>
-	</div>
-
-
-
-	<div class="swiper-container swiper-container-vertical" id="pc">
-		<div class="swiper-wrapper">
-			<div class="swiper-slide show1 pages">
-
-				<div class="bg">
-					<div id="wowslider-container">
-						<div class="ws_images">
-							<ul>
-								<li><img src="images/slider/1.jpg" id="wows1_0"/></li>
-								<li><img src="images/slider/2.jpg" id="wows1_1"/></li>
-								<li><img src="images/slider/3.jpg" id="wows1_2"/></li>
-								<li><img src="images/slider/4.jpg" id="wows1_3"/></li>
-								<li><img src="images/slider/5.jpg" id="wows1_4"/></li>
-								<li><img src="images/slider/6.jpg" id="wows1_5"/></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<div class="mask">
-					<div class="box">
-						<div class="image-shadow js-tilt-container">
-							<div class="wel_info">
-								<span class="welcome">Hello,I'm VI</span>
-								<span class="welcome_info">Great hopes make great man.</span>
-								<span>您好，我叫牛鑫宇</span>
-								<span>正在努力成为一名前端开发工程师</span>
-								<span onselectstart="event.cancelBubble=true"><a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=dEZCQU1BQEJHR0M0BQVaFxsZ"
-																				 style="text-decoration:none;">2659546337@qq.com</a></span>
-							</div>
-
-						</div>
-					</div>
-				</div>
-
-
-			</div>
-
-			<div class="swiper-slide show2 pages">
-				<div class="show2_mask"></div>
-				<div class="main_con">
-					<div class="left_img"><img src="images/head_pic_1.png" alt="图片一"></div>
-					<div class="right_info">
-						您好，我叫牛鑫宇。我并不是计算机专业，但我热爱互联网，所以自学前端，希望可以成为一名优秀的前端开发人员。今后的职业规划是朝着全栈发展。<br>不浮躁，喜欢前端，执行力，学习能力都棒棒哒！
-					</div>
-				</div>
-			</div>
-
-
-
-			<div class="swiper-slide show3 pages">
-				<div class="show3_mask"></div>
-				<div id="skill_content">
-					<div class="skill_title">
-						<h1>前端技能</h1>
-					</div>
-
-					<div id="skill_info">
-						<p>前端的知识面非常广泛,吃透它需要具有持之以恒的精神。而在前端开发的学习工作中，重中之重就是对于原生javascript的理解和把握，从而在此基础上学习新的框架（JQuery、Bootstrap、Vue、Node等）。</p>
-
-					</div>
-					<hr>
-					<div id="skill_list">
-						<div class="skill_html">
-							<h3 style="text-align: center;margin-bottom: 15px">HTML</h3>
-							<div class="circleChart " id="0"></div>
-							<div class="clear"></div>
-						</div>
-
-						<div class="skill_css">
-							<h3 style="text-align: center;margin-bottom: 15px">CSS</h3>
-							<div class="circleChart " id="1"></div>
-							<div class="clear"></div>
-						</div>
-
-						<div class="skill_js">
-							<h3 style="text-align: center;margin-bottom: 15px">JavaScript</h3>
-							<div class="circleChart " id="2"></div>
-							<div class="clear"></div>
-						</div>
-
-						<div class="skill_jq">
-							<h3 style="text-align: center;margin-bottom: 15px">jQuery</h3>
-							<div class="circleChart " id="3"></div>
-							<div class="clear"></div>
-						</div>
-					</div>
-
-					<!-- ie -->
-					<div class="ie_skill_list">
-						<div class="skill_list_content" id="skill_list1">
-							<div class="skill_icon" id="skill_icon1"></div>
-							<div class="skill_flag"></div>
-							<div class="skill_int" id="skill_int1">
-								<ul>
-									<li>深刻理解Web标准</li>
-									<li>熟练运用html标签</li>
-									<li>熟悉xml及xhtml标记语言</li>
-									<li>掌握html5如SVG，localstorage新特性</li>
-								</ul>
-							</div>
-						</div>
-						<div class="skill_list_content" id="skill_list2">
-							<div class="skill_icon" id="skill_icon2"></div>
-							<div class="skill_flag"></div>
-							<div class="skill_int" id="skill_int2">
-								<ul>
-									<li>熟练运用css及css3新属性</li>
-									<li>注重浏览器兼容性，熟悉常见的css hack（兼容至IE8）</li>
-									<li>掌握css预编译器Less及Sass</li>
-								</ul>
-							</div>
-						</div>
-						<div class="skill_list_content" id="skill_list3">
-							<div class="skill_icon" id="skill_icon3"></div>
-							<div class="skill_flag"></div>
-							<div class="skill_int" id="skill_int3">
-								<ul>
-									<li>掌握原生JS的编程</li>
-									<li>注重JavaScript性能优化</li>
-									<li>熟悉Javascript的面向对象编程</li>
-								</ul>
-							</div>
-						</div>
-						<div class="skill_list_content" id="skill_list4">
-							<div class="skill_icon" id="skill_icon4"></div>
-							<div class="skill_flag"></div>
-							<div class="skill_int" id="skill_int4">
-								<ul>
-									<li>掌握jQuery.js库</li>
-									<li>熟悉bootstrap等常用的插件</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-			</div>
-
-			<div class="swiper-slide show4 pages">
-				<div class="show4_mask"></div>
-				<div class="demo">
-					<div id="demo_content">
-						<div class="title">
-							<h1>作品展示</h1>
-						</div>
-						<!--<hr>-->
-						<div class="slide_con">
-							<button class="slide_control slide_control_prev prev">
-								<!--<i class="ifont"></i>-->
-							</button>
-							<div class="slide_list">
-								<div class="slide_wrapper">
-									<div class="slide">
-										<a href="https://niuxinyu.github.io/JD/JD.html" class="slide_a">
-											<div class="slide_pic">
-												<img src="images/demo1.png" alt=""><span>商城类页面</span></div>
-										</a>
-									</div>
-									<div class="slide">
-										<a href="https://niuxinyu.github.io/JD_Login/login.html" class="slide_a">
-											<div class="slide_pic">
-												<img src="images/demo2.png" alt="">
-												<span>登录界面</span>
-											</div>
-										</a>
-									</div>
-									<div class="slide">
-										<a href="https://niuxinyu.github.io/JD_Register/register.html" class="slide_a">
-											<div class="slide_pic">
-												<img src="images/demo3.png" alt="">
-												<span>注册页面</span>
-
-											</div>
-										</a>
-									</div>
-
-								</div>
-							</div>
-							<button class="slide_control slide_control_next next">
-								<!--<i class="ifont"></i>-->
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="swiper-slide show5 pages">
-				<div class="show5_mask"></div>
-				<div class="contact_me">
-					<div class="clear"></div>
-					<div class="info">
-						<div class="en_info">
-							<p class="p1">CONTACT</p>
-							<p class="p2">FOR ME</p>
-							<div class="clear"></div>
-						</div>
-						<div cn_info>
-							<p class="p3">
-								<em class="p3_1">灵感</em>
-								<em class="p3_2">代码</em>
-								<em class="p3_3">梦想</em>
-								<em class="p3_4">未来</em>
-							</p>
-							<p class="p4">
-								学习是一个充实愉悦的过程<br>
-								喜欢尝试，期待新鲜事物<br>
-								前端即兴趣，兴趣即未来<br>
-								行路有良友，便是捷径<br>
-								期待有机会与您共事！<br>
-							</p>
-							<div class="contact_">
-								<a href="https://github.com/niuxinyu">
-									<img src="images/github.svg" alt="github">
-									<span class="github">GitHub</span>
-								</a>
-
-								<a href="javascript:;">
-									<img src="images/电话.svg" alt="电话">
-									<span class="phone">电话</span>
-								</a>
-
-								<a href="javascript:;">
-									<img src="images/qq.svg" alt="QQ">
-									<span class="qq"></span>
-								</a>
-
-								<a href="javascript:;">
-									<img src="images/微信.svg" alt="微信">
-									<span class="wechat"></span>
-								</a>
-
-								<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=dEZCQU1BQEJHR0M0BQVaFxsZ" style="text-decoration:none;">
-									<img src="images/邮箱.svg" alt="邮箱">
-									<span class="email">邮箱</span>
-								</a>
-								<div class="clear"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-		<div class="swiper-pagination" id="pc_but"></div>
-
-		<div class="left_info">
-			<span class="about_me">首页</span>
-			<span class="about_me">关于我</span>
-			<span class="about_me">技能栈</span>
-			<span class="about_me">作品</span>
-			<span class="about_me">联系我</span>
-		</div>
-	</div>
-
-
-	<div class="mobile" id="mobile">
-		<div class="mobile_head">
-			<a href="javascript:;" class="mobile_a rubberBand"><img src="images/head_pic_1.png" alt=""></a>
-			<h2 class="fadeInUp1">Hello,I'm VI</h2>
-			<p class="fadeInUp2">Great hopes make great man.</p>
-			<p class="fadeInUp3">您好，我叫牛鑫宇</p>
-			<p class="fadeInUp4">正在努力成为一名前端开发工程师</p>
-			<p class="fadeInUp5"><a href="javascript:;" onselectstart="event.cancelBubble=true">2659546337@qq.com</a></p>
-			<div class="contact_me">
-				<a href="https://github.com/niuxinyu">
-					<img src="images/github.svg" alt="github">
-					<span>Github</span>
-				</a>
-				<a href="javascript:;">
-					<img src="images/电话.svg" alt="电话">
-					<span>电话</span>
-				</a>
-				<a href="javascript:;">
-					<img src="images/qq.svg" alt="qq">
-					<span class="mobile_qq"></span>
-				</a>
-				<a href="javascript:;">
-					<img src="images/微信.svg" alt="wx">
-					<span class="mobile_wechat"></span>
-				</a>
-				<a href="javascript:;">
-					<img src="images/邮箱.svg" alt="邮箱">
-					<span>邮箱</span>
-				</a>
-				<div class="clear"></div>
-			</div>
-
-		</div>
-
-		<div class="mobile_about_me">
-			<div class="mobile_about_me_head">
-				<h2>关于我</h2>
-				<p></p>
-			</div>
-			<p>
-				您好，我叫牛鑫宇。我并不是计算机专业，但我热爱互联网，所以自学前端，并一直在努力，希望可以成为一名优秀的前端开发人员。今后的职业规划是朝着全栈发展。
-			</p>
-			<p>认准了一个目标，就去拼命实现，遇到困难就想办法解决，执行力Max。</p>
-		</div>
-
-		<div class="mobile_skills">
-			<div class="mobile_skills_head">
-				<h2>技能掌握</h2>
-				<p></p>
-			</div>
-			<p>
-
-				1.热爱前端，喜欢用最扎实的代码做出效果上最炫，代码上最合理的页面，能够兼容主流各种浏览器，比如ie8以上, chrome,firefox,opera。<br>
-
-				2.熟悉使用photoshop把设计的图片按照需要交互的要求进行效果实现。<br>
-
-				3.使用移动端的rem布局,响应式布局,解决不同移动端设备的适配和兼容问题。<br>
-
-				4.熟悉bootstrap,Jquery类库进行pc端项目快速开发, 熟练使用Swiper,sui等插件进行移动端项目的开发。<br>
-
-				5.熟练使用github进行代码管理，使用git版本管理工具。<br>
-
-				6.熟悉原生JS,熟悉JavaScript的面向对象编程，了解作用域以及闭包的原理。<br>
-
-				7.熟练使用Chrome 、Firefox等主流浏览器的开发人员工具调试页面。<br>
-
-			</p>
-
-			<div class="skills_photo">
-				<div class="skills_show">
-					<em>HTML</em>
-					<div class="html">
-						<div class="html_"></div>
-					</div>
-				</div>
-			</div>
-
-			<div class="skills_photo">
-				<div class="skills_show">
-					<em>CSS</em>
-					<div class="css">
-						<div class="css_"></div>
-					</div>
-				</div>
-			</div>
-
-			<div class="skills_photo">
-				<div class="skills_show">
-					<em>JavaScript</em>
-					<div class="js">
-						<div class="js_"></div>
-					</div>
-				</div>
-			</div>
-
-			<div class="skills_photo">
-				<div class="skills_show">
-					<em>jQuery</em>
-					<div class="jq">
-						<div class="jq_"></div>
-					</div>
-				</div>
-			</div>
-
-
-
-
-		</div>
-
-		<div class="demo">
-			<div class="demo_head">
-				<h2>作品展示</h2>
-				<p></p>
-			</div>
-
-			<div class="container">
-				<div>
-					<div class="jR3DCarouselGallery"></div>
-				</div>
-			</div>
-
-
-		</div>
-
-
-
-	</div>
-	<div id="up_icon"></div>
-
-	<script type="text/javascript" src="js/njs.min.js"></script>
-	<script type="text/javascript" src="js/swiper.min.js"></script>
+<!-- 首页加载动画 -->
+
+<div id="loading" class="loading">
+    <div class="loading-section section-left"></div>
+    <div class="loading-section section-right"></div>
+    <div id="loading-progress"></div>
+    <div class="loading-title" id="loading-title">欢迎访问我的简历(＝^ω^＝)</div>
+</div>
+
+
+<div class=top_bar>
+    <div class="head_pic">
+        <img src="images/xiao_head.jpg" alt="图片">
+        <div class="head_info">
+            <span>vi</span>
+            <i> 's</i>
+            resume
+        </div>
+    </div>
+
+    <div class="music_player">
+        <div class="music_pic">
+            <div class="music_control" id="music_control"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="swiper-container swiper-container-vertical" id="pc">
+    <div class="swiper-wrapper">
+
+        <div class="swiper-slide show1 pages">
+            <div class="bg">
+                <div id="wowslider-container">
+                    <div class="ws_images">
+                        <ul>
+                            <li><img src="images/slider/1.jpg" alt="1" title="1" id="wows1_0"/></li>
+                            <li><img src="images/slider/2.jpg" alt="2" title="2" id="wows1_1"/></li>
+                            <li><img src="images/slider/3.jpg" alt="3" title="3" id="wows1_2"/></li>
+                            <li><img src="images/slider/4.jpg" alt="4" title="4" id="wows1_3"/></li>
+                            <li><img src="images/slider/5.jpg" alt="5" title="5" id="wows1_4"/></li>
+                            <li><img src="images/slider/6.jpg" alt="6" title="6" id="wows1_5"/></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mask">
+                <div class="box">
+                    <div class="image-shadow js-tilt-container">
+                        <div class="wel_info">
+                            <span class="welcome">Hello,I'm VI</span>
+                            <span class="welcome_info">Great hopes make great man.</span>
+                            <span>您好，我叫牛鑫宇</span>
+                            <span>正在努力成为一名前端开发工程师</span>
+                            <span class="qq_mail" onselectstart="event.cancelBubble=true"><a target="_blank"
+                                                                                             href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=dEZCQU1BQEJHR0M0BQVaFxsZ"
+                                                                                             style="text-decoration:none;">2659546337@qq.com</a></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-slide show2 pages">
+            <div class="show2_mask"></div>
+            <div class="main_con">
+                <div class="left_img"><img src="images/head_pic_1.png" alt="图片一"></div>
+                <div class="right_info">
+                    您好，我叫牛鑫宇。我并不是计算机专业，但我热爱互联网，所以自学前端，希望可以成为一名优秀的前端开发人员。今后的职业规划是朝着全栈发展。<br>不浮躁，喜欢前端，执行力，学习能力都棒棒哒！
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-slide show3 pages">
+            <div class="show3_mask"></div>
+            <div id="skill_content">
+                <div class="skill_title">
+                    <h1>前端技能</h1>
+                </div>
+
+                <div id="skill_info">
+                    <p>
+                        前端的知识面非常广泛,吃透它需要具有持之以恒的精神。而在前端开发的学习工作中，重中之重就是对于原生javascript的理解和把握，从而在此基础上学习新的框架（JQuery、Bootstrap、Vue、Node等）。</p>
+
+                </div>
+                <hr>
+                <div id="skill_list">
+                    <div class="skill_html">
+                        <h3 style="text-align: center;margin-bottom: 15px">HTML</h3>
+                        <div class="circleChart " id="0"></div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="skill_css">
+                        <h3 style="text-align: center;margin-bottom: 15px">CSS</h3>
+                        <div class="circleChart " id="1"></div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="skill_js">
+                        <h3 style="text-align: center;margin-bottom: 15px">JavaScript</h3>
+                        <div class="circleChart " id="2"></div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="skill_jq">
+                        <h3 style="text-align: center;margin-bottom: 15px">jQuery</h3>
+                        <div class="circleChart " id="3"></div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+                <!-- ie -->
+<!--                <div class="ie_skill_list">-->
+<!--                    <div class="skill_list_content" id="skill_list1">-->
+<!--                        <div class="skill_icon" id="skill_icon1"></div>-->
+<!--                        <div class="skill_flag"></div>-->
+<!--                        <div class="skill_int" id="skill_int1">-->
+<!--                            <ul>-->
+<!--                                <li>深刻理解Web标准</li>-->
+<!--                                <li>熟练运用html标签</li>-->
+<!--                                <li>熟悉xml及xhtml标记语言</li>-->
+<!--                                <li>掌握html5如SVG，localstorage新特性</li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="skill_list_content" id="skill_list2">-->
+<!--                        <div class="skill_icon" id="skill_icon2"></div>-->
+<!--                        <div class="skill_flag"></div>-->
+<!--                        <div class="skill_int" id="skill_int2">-->
+<!--                            <ul>-->
+<!--                                <li>熟练运用css及css3新属性</li>-->
+<!--                                <li>注重浏览器兼容性，熟悉常见的css hack（兼容至IE8）</li>-->
+<!--                                <li>掌握css预编译器Less及Sass</li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="skill_list_content" id="skill_list3">-->
+<!--                        <div class="skill_icon" id="skill_icon3"></div>-->
+<!--                        <div class="skill_flag"></div>-->
+<!--                        <div class="skill_int" id="skill_int3">-->
+<!--                            <ul>-->
+<!--                                <li>掌握原生JS的编程</li>-->
+<!--                                <li>注重JavaScript性能优化</li>-->
+<!--                                <li>熟悉Javascript的面向对象编程</li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="skill_list_content" id="skill_list4">-->
+<!--                        <div class="skill_icon" id="skill_icon4"></div>-->
+<!--                        <div class="skill_flag"></div>-->
+<!--                        <div class="skill_int" id="skill_int4">-->
+<!--                            <ul>-->
+<!--                                <li>掌握jQuery.js库</li>-->
+<!--                                <li>熟悉bootstrap等常用的插件</li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+
+
+        </div>
+
+        <div class="swiper-slide show4 pages">
+            <div class="show4_mask"></div>
+            <div class="demo">
+                <div id="demo_content">
+                    <div class="title">
+                        <h1>作品展示</h1>
+                    </div>
+
+                    <div class="slide_con">
+                        <div class="slide_list">
+                            <div class="slide_wrapper">
+                                <div class="slide">
+                                    <a href="https://niuxinyu.github.io/JD/JD.html" class="slide_a">
+                                        <div class="slide_pic">
+                                            <img src="images/demo1.png" alt=""><span>商城类页面</span></div>
+                                    </a>
+                                </div>
+                                <div class="slide">
+                                    <a href="https://niuxinyu.github.io/JD_Login/login.html" class="slide_a">
+                                        <div class="slide_pic">
+                                            <img src="images/demo2.png" alt="">
+                                            <span>登录界面</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="slide">
+                                    <a href="https://niuxinyu.github.io/JD_Register/register.html" class="slide_a">
+                                        <div class="slide_pic">
+                                            <img src="images/demo3.png" alt="">
+                                            <span>注册页面</span>
+
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <button class="slide_control slide_control_prev prev">
+                        </button>
+                        <button class="slide_control slide_control_next next">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-slide show5 pages">
+            <div class="show5_mask"></div>
+            <div class="contact_me">
+                <div class="clear"></div>
+                <div class="info">
+                    <div class="en_info">
+                        <p class="p1">CONTACT</p>
+                        <p class="p2">FOR ME</p>
+                        <div class="clear"></div>
+                    </div>
+                    <div class=cn_info>
+                        <p class="p3">
+                            <em class="p3_1">灵感</em>
+                            <em class="p3_2">代码</em>
+                            <em class="p3_3">梦想</em>
+                            <em class="p3_4">未来</em>
+                        </p>
+                        <p class="p4">
+                            学习是一个充实愉悦的过程<br>
+                            喜欢尝试，期待新鲜事物<br>
+                            前端即兴趣，兴趣即未来<br>
+                            行路有良友，便是捷径<br>
+                            期待有机会与您共事！<br>
+                        </p>
+                        <div class="contact_">
+                            <div href="https://github.com/niuxinyu">
+                                <img src="images/github.svg" alt="github">
+                                <span class="github">GitHub</span>
+                            </div>
+
+                            <div href="javascript:;">
+                                <img src="images/电话.svg" alt="电话">
+                                <span class="phone">电话</span>
+                            </div>
+
+                            <div href="javascript:;">
+                                <img src="images/qq.svg" alt="QQ">
+                                <span class="qq"></span>
+                            </div>
+
+                            <div href="javascript:;">
+                                <img src="images/微信.svg" alt="微信">
+                                <span class="wechat"></span>
+                            </div>
+
+                            <div target="_blank"
+                                 href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=dEZCQU1BQEJHR0M0BQVaFxsZ"
+                                 style="text-decoration:none;">
+                                <img src="images/邮箱.svg" alt="邮箱">
+                                <span class="email">邮箱</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-pagination" id="pc_but"></div>
+
+<!--    <div class="left_info">-->
+<!--        <span class="about_me">首页</span>-->
+<!--        <span class="about_me">关于我</span>-->
+<!--        <span class="about_me">技能栈</span>-->
+<!--        <span class="about_me">作品</span>-->
+<!--        <span class="about_me">联系我</span>-->
+<!--    </div>-->
+</div>
+
+
+<div class="mobile" id="mobile">
+    <div class="mobile_head">
+        <a href="javascript:;" class="mobile_a rubberBand"><img src="images/head_pic_1.png" alt=""></a>
+        <h2 class="fadeInUp1">Hello,I'm VI</h2>
+        <p class="fadeInUp2">Great hopes make great man.</p>
+        <p class="fadeInUp3">您好，我叫牛鑫宇</p>
+        <p class="fadeInUp4">正在努力成为一名前端开发工程师</p>
+        <p class="fadeInUp5"><a href="javascript:;" onselectstart="event.cancelBubble=true">2659546337@qq.com</a></p>
+        <div class="contact_me">
+            <a href="https://github.com/niuxinyu">
+                <img src="images/github.svg" alt="github">
+                <span>Github</span>
+            </a>
+            <a href="javascript:;">
+                <img src="images/电话.svg" alt="电话">
+                <span>电话</span>
+            </a>
+            <a href="javascript:;">
+                <img src="images/qq.svg" alt="qq">
+                <span class="mobile_qq"></span>
+            </a>
+            <a href="javascript:;">
+                <img src="images/微信.svg" alt="wx">
+                <span class="mobile_wechat"></span>
+            </a>
+            <a href="javascript:;">
+                <img src="images/邮箱.svg" alt="邮箱">
+                <span>邮箱</span>
+            </a>
+            <div class="clear"></div>
+        </div>
+
+    </div>
+
+    <div class="mobile_about_me">
+        <div class="mobile_about_me_head">
+            <h2>关于我</h2>
+            <p></p>
+        </div>
+        <p>
+            您好，我叫牛鑫宇。我并不是计算机专业，但我热爱互联网，所以自学前端，并一直在努力，希望可以成为一名优秀的前端开发人员。今后的职业规划是朝着全栈发展。
+        </p>
+        <p>认准了一个目标，就去拼命实现，遇到困难就想办法解决，执行力Max。</p>
+    </div>
+
+    <div class="mobile_skills">
+        <div class="mobile_skills_head">
+            <h2>技能掌握</h2>
+            <p></p>
+        </div>
+        <p>
+
+            1.热爱前端，喜欢用最扎实的代码做出效果上最炫，代码上最合理的页面，能够兼容主流各种浏览器，比如ie8以上, chrome,firefox,opera。<br>
+
+            2.熟悉使用photoshop把设计的图片按照需要交互的要求进行效果实现。<br>
+
+            3.使用移动端的rem布局,响应式布局,解决不同移动端设备的适配和兼容问题。<br>
+
+            4.熟悉bootstrap,Jquery类库进行pc端项目快速开发, 熟练使用Swiper,sui等插件进行移动端项目的开发。<br>
+
+            5.熟练使用github进行代码管理，使用git版本管理工具。<br>
+
+            6.熟悉原生JS,熟悉JavaScript的面向对象编程，了解作用域以及闭包的原理。<br>
+
+            7.熟练使用Chrome 、Firefox等主流浏览器的开发人员工具调试页面。<br>
+
+        </p>
+
+        <div class="skills_photo">
+            <div class="skills_show">
+                <em>HTML</em>
+                <div class="html">
+                    <div class="html_"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills_photo">
+            <div class="skills_show">
+                <em>CSS</em>
+                <div class="css">
+                    <div class="css_"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills_photo">
+            <div class="skills_show">
+                <em>JavaScript</em>
+                <div class="js">
+                    <div class="js_"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills_photo">
+            <div class="skills_show">
+                <em>jQuery</em>
+                <div class="jq">
+                    <div class="jq_"></div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="demo">
+        <div class="demo_head">
+            <h2>作品展示</h2>
+            <p></p>
+        </div>
+
+        <div class="container">
+            <div>
+                <div class="jR3DCarouselGallery"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+<div id="up_icon"></div>
+
+<!--<script src="/js/swiper.min.js"></script>-->
+<!--	<script type="text/javascript" src="js/njs.min.js"></script>-->
+<!--	<script type="text/javascript" src="js/swiper.min.js"></script>-->
+
+<script src="/js/wowslider.js"></script>
+<script src="/js/script.js"></script>
+<script src="/js/swiper.js"></script>
+<script src="/js/resume.js"></script>
+<script src="/js/circleChart.min.js"></script>
 </body>
 
 </html>
