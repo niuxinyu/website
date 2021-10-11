@@ -11,7 +11,7 @@ function tersePath(pathArr) {
   return pathArr.join(' ')
 }
 
-// @keyframe
+// fix @keyframe
 function normalizePropertyName(propertyName) {
   if (typeof propertyName === 'object' && propertyName !== null) {
     return ' {\n ' +
@@ -48,7 +48,27 @@ function createStyle(selector, styleSheet, context) {
   return styleArr.join('\n')
 }
 
+let deep = 0
+
 function traverseStyle(children, styles, pathArr) {
+  deep += 1
+  // add 子选择器有逗号的时候尝试添加父选择器
+  // tips: 可能不合理
+  if (deep > 1) {
+    if (children.root.includes(',')) {
+      const childrenRootList = children.root.split(',')
+      for (let i = 0; i < childrenRootList.length;i++) {
+        const cur = childrenRootList[i]
+        const parent = pathArr[pathArr.length - 1]
+        if (i === 0) {
+          children.root = [cur]
+        }
+        else {
+          children.root.push(' ' + parent + cur)
+        }
+      }
+    }
+  }
   pathArr.push(children.root)
   const sel = tersePath(pathArr)
   const style = createStyle(sel, children.styleSheet, this);
@@ -64,8 +84,10 @@ function traverseStyle(children, styles, pathArr) {
 
 // 渲染为 字符串
 function renderStyle() {
-  const styles = []
-  return traverseStyle(this, styles, [])
+  const styles = [];
+  const styleStr = traverseStyle(this, styles, []);
+  deep = 0;
+  return styleStr;
 }
 
 // 挂载到页面

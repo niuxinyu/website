@@ -118,7 +118,7 @@ function initSwiper() {
     // pagination: '.swiper-pagination'
     on: {
       transitionStart (o) {
-        console.log(o);
+        // console.log(o);
       }
     }
   })
