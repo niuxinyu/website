@@ -82,7 +82,6 @@ function traverseStyle(children, styles, pathArr) {
   return styles.join('\n\n')
 }
 
-// 渲染为 字符串
 function renderStyle() {
   const styles = [];
   const styleStr = traverseStyle(this, styles, []);
@@ -90,7 +89,6 @@ function renderStyle() {
   return styleStr;
 }
 
-// 挂载到页面
 /**
  * @param {string} id
  * */
