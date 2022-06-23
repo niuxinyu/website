@@ -35,7 +35,7 @@ css('html, body, body *', {
 // font-family
 css('@font-face', {
   fontFamily: 'SketchFineSerif',
-  src: 'url(../font/SketchFineSerif.otf)',
+  src: 'url(./font/SketchFineSerif.otf)',
 }).mountStyle('font-family');
 
 // animation
