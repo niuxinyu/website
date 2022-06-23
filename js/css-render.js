@@ -16,7 +16,7 @@ function normalizePropertyName(propertyName) {
   if (typeof propertyName === 'object' && propertyName !== null) {
     return ' {\n ' +
       Object.entries(propertyName).map(v =>
-        `  ${kebabCase(v[0])}: ${v[1]}`
+        `  ${kebabCase(v[0])}: ${v[1]};`
       ).join('\n') + '\n' + '}';
   }
   return `: ${propertyName};`
@@ -97,7 +97,7 @@ function mountStyle(id = '') {
 
   const style = document.createElement('style')
   if (id.length) {
-    style.setAttribute('id', id)
+    style.setAttribute('css-id', id)
   }
   style.textContent = styleStr
   document.head.appendChild(style)
